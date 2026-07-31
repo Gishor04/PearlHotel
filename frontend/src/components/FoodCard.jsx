@@ -1,29 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Clock, Eye, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Star, Eye, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function FoodCard({ food, onViewDetail }) {
   const formatLKR = (amount) => {
     return `Rs. ${Number(amount).toLocaleString('en-LK')}`;
   };
 
+  const handleImageError = (e) => {
+    e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=75';
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.3 }}
+      viewport={{ once: true, margin: '50px' }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.25 }}
       onClick={() => onViewDetail(food)}
       className="group relative rounded-3xl bg-dark-900/90 border border-slate-800/80 hover:border-gold-500/50 glass-panel glass-panel-hover overflow-hidden flex flex-col justify-between shadow-xl cursor-pointer"
     >
       {/* Upper Image Container */}
-      <div className="relative w-full h-52 sm:h-56 overflow-hidden">
+      <div className="relative w-full h-52 sm:h-56 overflow-hidden bg-dark-950">
         <img
           src={food.imageUrl}
           alt={food.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+          onError={handleImageError}
           loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-black/30" />
 

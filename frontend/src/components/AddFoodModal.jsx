@@ -14,7 +14,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
     category: 'Breakfast & Snacks',
     price: '',
     isAvailable: true,
-    isVeg: false, // false = Non-Veg, true = Veg
+    isVeg: false,
     description: '',
     imageUrl: '',
     prepTime: '15 mins',
@@ -42,7 +42,43 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
 
   if (!isOpen) return null;
 
-  // Handle File / Camera Photo Upload
+  // High-performance image compressor for camera photos (Max 800px, 75% quality)
+  const compressImage = (file, callback) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 800;
+        const MAX_HEIGHT = 800;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        const compressedBase64 = canvas.toDataURL('image/jpeg', 0.75);
+        callback(compressedBase64);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // Handle File / Camera Photo Upload with Instant Compression
   const handleImageFileChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -52,20 +88,11 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
       return;
     }
 
-    // Limit file size to ~5MB
-    if (file.size > 5 * 1024 * 1024) {
-      toast.error('Image size should be less than 5MB');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const base64Data = event.target.result;
-      setImagePreview(base64Data);
-      setFormData((prev) => ({ ...prev, imageUrl: base64Data }));
-      toast.success('Photo attached successfully!');
-    };
-    reader.readAsDataURL(file);
+    compressImage(file, (compressedBase64) => {
+      setImagePreview(compressedBase64);
+      setFormData((prev) => ({ ...prev, imageUrl: compressedBase64 }));
+      toast.success('Photo ready & compressed for speed!');
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -77,7 +104,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
 
     const finalImageUrl =
       formData.imageUrl ||
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80';
+      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=75';
 
     setLoading(true);
     try {
