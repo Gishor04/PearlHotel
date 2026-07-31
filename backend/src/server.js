@@ -16,9 +16,18 @@ app.use(cors({ origin: '*' }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Request logger
-app.use((req, res, next) => {
-  console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`);
+// Ensure DB is connected before processing requests
+let isConnected = false;
+app.use(async (req, res, next) => {
+  if (!isConnected) {
+    try {
+      await connectDB();
+      await autoSeedDatabase();
+      isConnected = true;
+    } catch (err) {
+      console.error('[Server DB Error]:', err.message);
+    }
+  }
   next();
 });
 
@@ -41,19 +50,11 @@ app.get('/', (req, res) => {
   res.send('👑 Pearl Hotel 2026 Luxury Restaurant API is Live!');
 });
 
-// Start Server & Connect Database
-const startServer = async () => {
-  try {
-    await connectDB();
-    await autoSeedDatabase();
+// Start listening if run locally
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Pearl Hotel Backend Server running on http://localhost:${PORT}`);
+  });
+}
 
-    app.listen(PORT, () => {
-      console.log(`\n🚀 Pearl Hotel Backend Server running on http://localhost:${PORT}`);
-      console.log(`🍔 API Base URL: http://localhost:${PORT}/api/foods\n`);
-    });
-  } catch (error) {
-    console.error('Failed to launch server:', error);
-  }
-};
-
-startServer();
+export default app;

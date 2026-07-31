@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://gishor14_db_user:2000227@cluster0.go8u2pz.mongodb.net/?appName=Cluster0",
+    "DB_NAME": "pearl_hotel"
+  }
+}
