@@ -14,7 +14,7 @@ const MONGODB_URI =
   'mongodb+srv://gishor14_db_user:2000227@cluster0.go8u2pz.mongodb.net/?appName=Cluster0';
 const DB_NAME = process.env.DB_NAME || 'pearl_hotel';
 
-// Category Mongoose Schema
+// Category Schema
 const categorySchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -27,7 +27,7 @@ const categorySchema = new mongoose.Schema(
 
 const Category = mongoose.models.Category || mongoose.model('Category', categorySchema);
 
-// Food Mongoose Schema
+// Food Schema
 const foodSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -45,15 +45,18 @@ const foodSchema = new mongoose.Schema(
 
 const Food = mongoose.models.Food || mongoose.model('Food', foodSchema);
 
-// Cached Connection Helper
+// Memory fallback store for Vercel lambdas
+let memoryFoodsStore = [];
+
+// Cached Mongoose Connection
 let cachedDb = null;
 const connectDB = async () => {
   if (cachedDb && mongoose.connection.readyState === 1) return cachedDb;
   mongoose.set('strictQuery', false);
   const db = await mongoose.connect(MONGODB_URI, {
     dbName: DB_NAME,
-    serverSelectionTimeoutMS: 3000,
-    connectTimeoutMS: 3000,
+    serverSelectionTimeoutMS: 2500,
+    connectTimeoutMS: 2500,
   });
   cachedDb = db;
   return db;
@@ -61,37 +64,31 @@ const connectDB = async () => {
 
 // GET /api/foods
 app.get('/api/foods', async (req, res) => {
+  let dbFoods = [];
+
   try {
     await connectDB();
-    const { search, category, isVeg } = req.query;
-    let query = {};
-    if (search) {
-      query.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { category: { $regex: search, $options: 'i' } },
-        { description: { $regex: search, $options: 'i' } },
-      ];
-    }
-    if (category && category !== 'All') {
-      query.category = { $regex: new RegExp(`^${category}$`, 'i') };
-    }
-    if (isVeg !== undefined && isVeg !== 'all') {
-      query.isVeg = isVeg === 'true';
-    }
-    const foods = await Food.find(query).sort({ category: 1, name: 1 }).lean();
-    if (foods && foods.length > 0) {
-      return res.status(200).json({ success: true, count: foods.length, data: foods });
-    }
+    dbFoods = await Food.find({}).sort({ createdAt: -1, name: 1 }).lean();
   } catch (error) {
-    console.warn('[Vercel Mongo Fallback]: Using pre-loaded sample foods due to Atlas IP restriction');
+    console.warn('[Vercel Mongo Warning]: Using memory fallback store');
   }
 
-  // Fallback to sample foods if Atlas connection is restricted
-  const { search, category, isVeg } = req.query;
-  let filtered = [...sampleFoods].map((f, idx) => ({ ...f, _id: `seed_${idx}` }));
+  // Base list
+  let baseList = dbFoods.length > 0
+    ? dbFoods
+    : sampleFoods.map((f, idx) => ({ ...f, _id: `seed_${idx}` }));
 
+  // Combine baseList + memoryFoodsStore
+  const combinedMap = new Map();
+  baseList.forEach((item) => combinedMap.set(item.name.toLowerCase().trim(), item));
+  memoryFoodsStore.forEach((item) => combinedMap.set(item.name.toLowerCase().trim(), item));
+
+  let finalFoods = Array.from(combinedMap.values());
+
+  // Filter search, category, isVeg
+  const { search, category, isVeg } = req.query;
   if (search) {
-    filtered = filtered.filter(
+    finalFoods = finalFoods.filter(
       (f) =>
         f.name.toLowerCase().includes(search.toLowerCase()) ||
         f.category.toLowerCase().includes(search.toLowerCase()) ||
@@ -99,51 +96,63 @@ app.get('/api/foods', async (req, res) => {
     );
   }
   if (category && category !== 'All') {
-    filtered = filtered.filter((f) => f.category.toLowerCase() === category.toLowerCase());
+    finalFoods = finalFoods.filter((f) => f.category.toLowerCase() === category.toLowerCase());
   }
   if (isVeg !== undefined && isVeg !== 'all') {
-    filtered = filtered.filter((f) => f.isVeg === (isVeg === 'true'));
+    finalFoods = finalFoods.filter((f) => f.isVeg === (isVeg === 'true'));
   }
 
-  return res.status(200).json({ success: true, count: filtered.length, data: filtered });
+  return res.status(200).json({ success: true, count: finalFoods.length, data: finalFoods });
 });
 
 // POST /api/foods
 app.post('/api/foods', async (req, res) => {
+  const { name, category, price, isAvailable, isVeg, description, imageUrl, prepTime } = req.body;
+  if (!name || !category || price === undefined) {
+    return res.status(400).json({ success: false, message: 'Name, Category, and Price required' });
+  }
+
+  const newDish = {
+    _id: `dish_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
+    name,
+    category,
+    price: Number(price),
+    isAvailable: isAvailable !== undefined ? isAvailable : true,
+    isVeg: Boolean(isVeg),
+    description: description || '',
+    imageUrl: imageUrl || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
+    rating: 4.8,
+    prepTime: prepTime || '15 mins',
+    createdAt: new Date().toISOString(),
+  };
+
+  // 1. Keep in runtime store
+  memoryFoodsStore.unshift(newDish);
+
+  // 2. Persist to Atlas if connected
   try {
     await connectDB();
-    const { name, category, price, isAvailable, isVeg, description, imageUrl, prepTime } = req.body;
-    if (!name || !category || price === undefined) {
-      return res.status(400).json({ success: false, message: 'Name, Category, and Price required' });
-    }
-    const newFood = await Food.create({
-      name,
-      category,
-      price: Number(price),
-      isAvailable: isAvailable !== undefined ? isAvailable : true,
-      isVeg: isVeg !== undefined ? isVeg : false,
-      description: description || '',
-      imageUrl: imageUrl || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
-      rating: 4.8,
-      prepTime: prepTime || '15 mins',
+    const createdDoc = await Food.create({
+      name: newDish.name,
+      category: newDish.category,
+      price: newDish.price,
+      isAvailable: newDish.isAvailable,
+      isVeg: newDish.isVeg,
+      description: newDish.description,
+      imageUrl: newDish.imageUrl,
+      rating: newDish.rating,
+      prepTime: newDish.prepTime,
     });
-    return res.status(201).json({ success: true, data: newFood });
+    newDish._id = createdDoc._id.toString();
   } catch (error) {
-    const { name, category, price, isVeg, description, imageUrl } = req.body;
-    const fallbackFood = {
-      _id: `temp_${Date.now()}`,
-      name,
-      category,
-      price: Number(price),
-      isAvailable: true,
-      isVeg: Boolean(isVeg),
-      description: description || '',
-      imageUrl: imageUrl || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
-      rating: 4.8,
-      prepTime: '15 mins',
-    };
-    return res.status(201).json({ success: true, data: fallbackFood });
+    console.warn('[Vercel Mongo Save Warning]: Saved locally in runtime memory:', error.message);
   }
+
+  return res.status(201).json({
+    success: true,
+    message: 'Food product added successfully',
+    data: newDish,
+  });
 });
 
 // GET /api/categories
