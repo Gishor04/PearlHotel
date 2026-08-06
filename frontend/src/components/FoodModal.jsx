@@ -1,11 +1,18 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Star, Clock, ShieldCheck } from 'lucide-react';
+import { X, Star, Clock, ShieldCheck, MessageCircle, Phone } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function FoodModal({ food, onClose }) {
+  const { t } = useLanguage();
   if (!food) return null;
 
   const formatLKR = (amount) => `Rs. ${Number(amount).toLocaleString('en-LK')}`;
+
+  const whatsappNumber = '94771234567';
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello Pearl Hotel! I would like to order: ${food.name} (${formatLKR(food.price)})`
+  )}`;
 
   return (
     <AnimatePresence>
@@ -64,7 +71,7 @@ export default function FoodModal({ food, onClose }) {
                       ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
                       : 'bg-red-950/60 text-red-400 border-red-500/30'
                   }`}>
-                    {food.isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
+                    {food.isVeg ? t('veg') : t('nonVeg')}
                   </span>
 
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-md border ${
@@ -94,14 +101,36 @@ export default function FoodModal({ food, onClose }) {
               <span>Prepared in accordance with Pearl Hotel Jaffna strict food hygiene & quality standards.</span>
             </div>
 
-            {/* Bottom Action */}
-            <div className="mt-8 flex items-center justify-end border-t border-slate-800/80 pt-6">
+            {/* Bottom Order Actions */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-800/80 pt-6">
+              
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 sm:flex-initial px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all"
+                >
+                  <MessageCircle className="w-4 h-4 fill-white text-white" />
+                  <span>{t('orderWhatsApp')}</span>
+                </a>
+
+                <a
+                  href="tel:+94771234567"
+                  className="flex-1 sm:flex-initial px-6 py-3 rounded-full bg-crimson-900/80 hover:bg-crimson-800 text-gold-300 border border-gold-500/40 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all"
+                >
+                  <Phone className="w-4 h-4 text-gold-400" />
+                  <span>{t('quickCall')}</span>
+                </a>
+              </div>
+
               <button
                 onClick={onClose}
-                className="px-8 py-3 rounded-full gold-gradient-bg text-dark-950 font-bold text-sm shadow-gold-glow transition-all"
+                className="w-full sm:w-auto px-6 py-3 rounded-full bg-dark-800 hover:bg-dark-700 text-slate-300 font-bold text-xs transition-all"
               >
                 Close
               </button>
+
             </div>
           </div>
         </motion.div>

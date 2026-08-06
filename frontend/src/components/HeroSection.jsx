@@ -1,13 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Utensils, ArrowRight, Star, Flame, Shield, Clock } from 'lucide-react';
+import { Sparkles, Utensils, ArrowRight, Star, Flame, Shield, Phone, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function HeroSection({ onExploreClick }) {
+  const { t } = useLanguage();
+
+  const whatsappNumber = '94771234567';
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello Pearl Hotel! I would like to place an order.')}`;
+
   return (
-    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-dark-950">
-      {/* Animated Glowing Orbs & Radial Gradients Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-dark-950">
+      
+      {/* Real AI Scenery Background Layer */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/ai_bg_scenery.png"
+          alt="Pearl Hotel Luxury Fine Dining Scenery Background"
+          className="w-full h-full object-cover object-center opacity-25 scale-105"
+        />
+        {/* Dark Luxury Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/80 to-dark-950/90" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-dark-950/60 to-dark-950" />
+      </div>
+
+      {/* Animated Glowing Orbs Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -30,15 +49,15 @@ export default function HeroSection({ onExploreClick }) {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
-            {/* Top Crown Badge */}
+            {/* Top Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-dark-800/80 border border-gold-600/30 text-gold-400 text-xs sm:text-sm font-medium tracking-wide mb-6 shadow-gold-glow"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-dark-800/90 border border-gold-600/30 text-gold-400 text-xs sm:text-sm font-medium tracking-wide mb-6 shadow-gold-glow"
             >
               <Sparkles className="w-4 h-4 text-gold-400 animate-spin-slow" />
-              <span>Authentic Ceylon Fine Dining & Street Specialties</span>
+              <span>{t('badge')}</span>
             </motion.div>
 
             {/* Restaurant Title */}
@@ -48,7 +67,7 @@ export default function HeroSection({ onExploreClick }) {
               transition={{ delay: 0.3 }}
               className="font-serif text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none"
             >
-              PEARL <span className="gold-gradient-text">HOTEL</span>
+              {t('heroTitlePrefix')} <span className="gold-gradient-text">{t('heroTitleSuffix')}</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -58,40 +77,50 @@ export default function HeroSection({ onExploreClick }) {
               transition={{ delay: 0.4 }}
               className="mt-4 text-lg sm:text-2xl font-medium tracking-wider text-gold-300/90 font-serif"
             >
-              Fresh Foods • Best Taste • Premium Quality
+              {t('heroSubtitle')}
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-4 text-sm sm:text-base text-slate-400 max-w-xl font-light leading-relaxed"
+              className="mt-4 text-sm sm:text-base text-slate-300 max-w-xl font-light leading-relaxed"
             >
-              Experience the pinnacle of culinary excellence. From sizzling Kottu and aromatic Dum Biriyani to crispy Appam and fiery seafood devilled specialties, crafted by master chefs.
+              {t('heroDesc')}
             </motion.p>
 
-            {/* Action Buttons */}
+            {/* Action Buttons: View Menu, WhatsApp Order, Call Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+              className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full"
             >
               <Link
                 to="/menu"
-                className="w-full sm:w-auto px-8 py-4 rounded-full gold-gradient-bg text-dark-950 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-3 shadow-gold-glow hover:scale-105 active:scale-95 transition-all duration-300"
+                className="px-8 py-4 rounded-full gold-gradient-bg text-dark-950 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-3 shadow-gold-glow hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 <Utensils className="w-5 h-5" />
-                View Menu
+                <span>{t('viewMenu')}</span>
               </Link>
 
-              <button
-                onClick={onExploreClick}
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-dark-800/90 hover:bg-dark-700 text-white font-semibold text-sm sm:text-base tracking-wide border border-gold-600/40 hover:border-gold-400 flex items-center justify-center gap-3 transition-all duration-300 shadow-glass"
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 shadow-2xl hover:scale-105 transition-all border border-emerald-400/40"
               >
-                <span>Explore Foods</span>
-                <ArrowRight className="w-5 h-5 text-gold-400" />
-              </button>
+                <MessageCircle className="w-5 h-5 fill-white text-white" />
+                <span>{t('orderWhatsApp')}</span>
+              </a>
+
+              <a
+                href="tel:+94771234567"
+                className="px-6 py-4 rounded-full bg-crimson-900/80 hover:bg-crimson-800 text-gold-300 font-bold text-sm sm:text-base tracking-wide border border-gold-500/40 flex items-center justify-center gap-2 transition-all hover:scale-105"
+              >
+                <Phone className="w-5 h-5 text-gold-400" />
+                <span>+94 77 123 4567</span>
+              </a>
             </motion.div>
 
             {/* Highlight Badges */}
@@ -105,17 +134,17 @@ export default function HeroSection({ onExploreClick }) {
                 <span className="font-serif text-2xl font-bold text-white flex items-center gap-1">
                   4.9 <Star className="w-4 h-4 fill-gold-400 text-gold-400 inline" />
                 </span>
-                <span className="text-xs text-slate-400 mt-0.5">Top Rated</span>
+                <span className="text-xs text-slate-400 mt-0.5">{t('topRated')}</span>
               </div>
               <div className="flex flex-col items-center lg:items-start">
                 <span className="font-serif text-2xl font-bold text-gold-400">50+</span>
-                <span className="text-xs text-slate-400 mt-0.5">Fresh Dishes</span>
+                <span className="text-xs text-slate-400 mt-0.5">{t('freshDishes')}</span>
               </div>
               <div className="flex flex-col items-center lg:items-start">
                 <span className="font-serif text-2xl font-bold text-white flex items-center gap-1">
                   100% <Shield className="w-4 h-4 text-emerald-400 inline" />
                 </span>
-                <span className="text-xs text-slate-400 mt-0.5">Fresh Ingredients</span>
+                <span className="text-xs text-slate-400 mt-0.5">{t('freshQuality')}</span>
               </div>
             </motion.div>
           </motion.div>
@@ -181,8 +210,8 @@ export default function HeroSection({ onExploreClick }) {
                 <Flame className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white font-serif">Fresh & Hot</h4>
-                <p className="text-[11px] text-slate-300">Served in 15 mins</p>
+                <h4 className="text-xs font-bold text-white font-serif">Fresh & Hot Tea</h4>
+                <p className="text-[11px] text-slate-300">Pure Ceylon Brew</p>
               </div>
             </motion.div>
 

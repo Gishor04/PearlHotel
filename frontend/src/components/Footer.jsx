@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Crown, MapPin, Phone, Clock, Mail, Heart } from 'lucide-react';
+import { Crown, MapPin, Phone, Clock, Heart, Lock, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-dark-950 border-t border-gold-600/20 text-slate-400 relative overflow-hidden pt-16 pb-8">
       {/* Glow highlight */}
@@ -27,56 +30,62 @@ export default function Footer() {
               Fresh Foods • Best Taste • Premium Quality
             </p>
             <p className="text-xs text-slate-400 font-light leading-relaxed">
-              Experience modern luxury dining and classic Ceylon street flavors. From hand-crafted Kottu and authentic Dum Biriyani to golden Appam and Ceylon tea.
+              {t('footerDesc')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">Quick Navigation</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('quickLinks')}</h4>
             <ul className="space-y-2 text-xs font-medium">
               <li>
-                <Link to="/" className="hover:text-gold-400 transition-colors">Home Page</Link>
+                <Link to="/" className="hover:text-gold-400 transition-colors">{t('home')}</Link>
               </li>
               <li>
-                <Link to="/menu" className="hover:text-gold-400 transition-colors">Full Food Menu</Link>
+                <Link to="/menu" className="hover:text-gold-400 transition-colors">{t('menu')}</Link>
+              </li>
+              <li>
+                <Link to="/admin" className="hover:text-gold-400 transition-colors flex items-center gap-1">
+                  <Lock className="w-3 h-3 text-gold-400" />
+                  <span>{t('adminLogin')}</span>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Popular Categories */}
           <div className="space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">Top Cuisine</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">Top Specialties</h4>
             <ul className="space-y-2 text-xs font-light">
               <li className="text-slate-300">Sizzling Chicken & Beef Kottu</li>
               <li className="text-slate-300">Dum Biriyani & Special Meals</li>
-              <li className="text-slate-300">Authentic Egg & Milk Appam</li>
-              <li className="text-slate-300">Devilled Prawns, Squid & Chicken</li>
-              <li className="text-slate-300">Ceylon Black & Milk Teas</li>
+              <li className="text-slate-300">Authentic Egg & Paal Appam</li>
+              <li className="text-slate-300">Devilled Prawns, Squid & Omelettes</li>
+              <li className="text-slate-300">Ceylon Black, Milk & Cardamom Teas</li>
             </ul>
           </div>
 
           {/* Contact & Hours */}
           <div className="space-y-3 text-xs">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">Visit & Contact</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('contactUs')}</h4>
             <div className="flex items-start gap-2.5">
               <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
-              <span>No: 82, A9 Road, Navatkuli Junction, Kaithady, Jaffna</span>
+              <span>{t('topAddress')}</span>
             </div>
             <div className="flex items-center gap-2.5">
               <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
-              <span>0212 213 826</span>
+              <a href="tel:+94771234567" className="text-gold-400 hover:underline font-bold">+94 77 123 4567</a>
             </div>
             <div className="flex items-start gap-2.5">
               <Clock className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
-              <span>Open Daily: 6:00 AM – 11:30 PM</span>
+              <span>{t('openHours')}</span>
             </div>
           </div>
         </div>
 
-        {/* Bottom copyright */}
+        {/* Bottom copyright (date-free title) */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 PEARL HOTEL Restaurant. All Rights Reserved.</p>
+          <p>© PEARL HOTEL Restaurant. {t('rights')}</p>
           <p className="flex items-center gap-1 text-slate-400">
             Crafted with <Heart className="w-3.5 h-3.5 text-crimson-800 fill-crimson-800" /> for Authentic Ceylon Food Lovers
           </p>

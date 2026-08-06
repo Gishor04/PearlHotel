@@ -5,7 +5,10 @@ import CategoryFilter from '../components/CategoryFilter';
 import SearchBar from '../components/SearchBar';
 import FoodCard from '../components/FoodCard';
 import FoodModal from '../components/FoodModal';
+import StorefrontLocationSection from '../components/StorefrontLocationSection';
+import CustomerReviews from '../components/CustomerReviews';
 import { getFoods, getCategories } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 import {
   Sparkles,
   Utensils,
@@ -17,7 +20,6 @@ import {
   Coffee,
   Sun,
   Soup,
-  Grid,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -32,7 +34,8 @@ const sectionIconMap = {
   'Kottu Table': ChefHat,
 };
 
-export default function HomePage({ onOpenAddFood }) {
+export default function HomePage() {
+  const { t } = useLanguage();
   const [foods, setFoods] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +56,6 @@ export default function HomePage({ onOpenAddFood }) {
       if (catRes.success) setCategories(catRes.data);
     } catch (error) {
       console.error('Error fetching foods:', error);
-      toast.error('Failed to load menu. Make sure the backend server is running.');
     } finally {
       setLoading(false);
     }
@@ -95,9 +97,13 @@ export default function HomePage({ onOpenAddFood }) {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-dark-950">
+      
       {/* Hero Section */}
       <HeroSection onExploreClick={handleScrollToMenu} />
+
+      {/* Real Physical Storefront Location Section */}
+      <StorefrontLocationSection />
 
       {/* Main Food Explorer & Section by Section Menu */}
       <section id="food-menu-section" className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
@@ -106,13 +112,13 @@ export default function HomePage({ onOpenAddFood }) {
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-600/30 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-3">
             <ChefHat className="w-4 h-4 text-gold-400" />
-            Pearl Hotel Jaffna Menu
+            <span>{t('menuBadge')}</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Our Menu <span className="gold-gradient-text">Section by Section</span>
+            {t('ourMenuTitle')} <span className="gold-gradient-text">{t('ourMenuHighlight')}</span>
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base font-light">
-            Browse authentic Jaffna dishes categorized section by section. Select any category pill to filter directly.
+            {t('menuDesc')}
           </p>
         </div>
 
@@ -143,7 +149,7 @@ export default function HomePage({ onOpenAddFood }) {
         ) : groupedSections.length === 0 ? (
           <div className="py-20 text-center glass-panel rounded-3xl p-8 border border-slate-800">
             <Utensils className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-            <h3 className="font-serif text-xl font-bold text-white">No Food Items Found</h3>
+            <h3 className="font-serif text-xl font-bold text-white">{t('noFoodsFound')}</h3>
             <p className="text-slate-400 text-sm mt-1">
               No matching items for "{searchTerm}" in category "{activeCategory}".
             </p>
@@ -155,7 +161,7 @@ export default function HomePage({ onOpenAddFood }) {
               }}
               className="mt-6 px-6 py-2.5 rounded-full gold-gradient-bg text-dark-950 font-bold text-xs shadow-gold-glow"
             >
-              Reset Filters
+              {t('resetFilters')}
             </button>
           </div>
         ) : (
@@ -191,7 +197,7 @@ export default function HomePage({ onOpenAddFood }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
                     {section.items.map((food) => (
                       <FoodCard
-                        key={food._id}
+                        key={food._id || food.name}
                         food={food}
                         onViewDetail={setSelectedFoodModal}
                       />
@@ -203,6 +209,9 @@ export default function HomePage({ onOpenAddFood }) {
           </div>
         )}
       </section>
+
+      {/* Customer Reviews Section */}
+      <CustomerReviews />
 
       {/* Featured Banner Section */}
       <section className="py-20 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950 border-y border-gold-600/20 my-12 relative overflow-hidden">
@@ -231,9 +240,9 @@ export default function HomePage({ onOpenAddFood }) {
             <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-4">
               <Sparkles className="w-7 h-7" />
             </div>
-            <h3 className="font-serif text-xl font-bold text-white">Luxury 2026 Experience</h3>
+            <h3 className="font-serif text-xl font-bold text-white">Ceylon Fine Dining</h3>
             <p className="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              Section by section menu browsing, dark luxury aesthetic, and instant price viewing.
+              Section by section menu browsing, dark luxury aesthetic, and instant WhatsApp ordering.
             </p>
           </div>
         </div>
