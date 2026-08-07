@@ -23,54 +23,54 @@ export default function Footer() {
                 </div>
               </div>
               <span className="font-serif text-2xl font-black text-white tracking-wide">
-                PEARL HOTEL
+                {t('nav.brandName')}
               </span>
             </div>
             <p className="text-xs text-gold-400/90 font-serif tracking-widest uppercase font-semibold">
-              Fresh Foods • Best Taste • Premium Quality
+              {t('footer.tagline')}
             </p>
             <p className="text-xs text-slate-400 font-light leading-relaxed">
-              {t('footerDesc')}
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('quickLinks')}</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2 text-xs font-medium">
               <li>
-                <Link to="/" className="hover:text-gold-400 transition-colors">{t('home')}</Link>
+                <Link to="/" className="hover:text-gold-400 transition-colors">{t('nav.home')}</Link>
               </li>
               <li>
-                <Link to="/menu" className="hover:text-gold-400 transition-colors">{t('menu')}</Link>
+                <Link to="/menu" className="hover:text-gold-400 transition-colors">{t('nav.menu')}</Link>
               </li>
               <li>
                 <Link to="/admin" className="hover:text-gold-400 transition-colors flex items-center gap-1">
                   <Lock className="w-3 h-3 text-gold-400" />
-                  <span>{t('adminLogin')}</span>
+                  <span>{t('nav.adminLogin')}</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Top Specialties (Fully Translated) */}
+          {/* Top Specialties */}
           <div className="space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('topSpecialties')}</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('footer.topSpecialties')}</h4>
             <ul className="space-y-2 text-xs font-light">
-              <li className="text-slate-300">{t('specialtyKottu')}</li>
-              <li className="text-slate-300">{t('specialtyBiryani')}</li>
-              <li className="text-slate-300">{t('specialtyAppam')}</li>
-              <li className="text-slate-300">{t('specialtyDevils')}</li>
-              <li className="text-slate-300">{t('specialtyTeas')}</li>
+              <li className="text-slate-300">{t('footer.specialtyKottu')}</li>
+              <li className="text-slate-300">{t('footer.specialtyBiryani')}</li>
+              <li className="text-slate-300">{t('footer.specialtyAppam')}</li>
+              <li className="text-slate-300">{t('footer.specialtyDevils')}</li>
+              <li className="text-slate-300">{t('footer.specialtyTeas')}</li>
             </ul>
           </div>
 
           {/* Contact & Hours */}
           <div className="space-y-3 text-xs">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('visitContact')}</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('footer.visitContact')}</h4>
             <div className="flex items-start gap-2.5">
               <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
-              <span>{t('topAddress')}</span>
+              <span>{t('nav.topAddress')}</span>
             </div>
             <div className="flex items-center gap-2.5">
               <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
@@ -78,14 +78,14 @@ export default function Footer() {
             </div>
             <div className="flex items-start gap-2.5">
               <Clock className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
-              <span>{t('openHours')}</span>
+              <span>{t('nav.openHours')}</span>
             </div>
           </div>
         </div>
 
         {/* Bottom copyright & PIRA AI AURA Designer Credit */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© PEARL HOTEL Restaurant. {t('rights')}</p>
+          <p>© PEARL HOTEL Restaurant. {t('footer.rights')}</p>
 
           {/* PIRA AI AURA Designer Badge */}
           <div className="flex items-center gap-3 bg-dark-900/80 px-4 py-2 rounded-2xl border border-slate-800/80 shadow-md">
@@ -96,16 +96,16 @@ export default function Footer() {
             />
             <div className="flex flex-col text-left">
               <span className="text-[11px] font-bold text-white tracking-wide">
-                {t('designedBy')}
+                {t('footer.designedBy')}
               </span>
               <span className="text-[9px] text-slate-500 font-mono">
-                Creative • Intelligent • Impactful
+                {t('footer.creativeTagline')}
               </span>
             </div>
           </div>
 
           <p className="flex items-center gap-1 text-slate-400">
-            {t('craftedWith')} <Heart className="w-3.5 h-3.5 text-crimson-800 fill-crimson-800" />
+            {t('footer.craftedWith')} <Heart className="w-3.5 h-3.5 text-crimson-800 fill-crimson-800" />
           </p>
         </div>
       </div>

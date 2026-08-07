@@ -1,0 +1,498 @@
+{
+  "nav": {
+    "brandName": "PEARL HOTEL",
+    "locationSub": "Navatkuli, Jaffna",
+    "topAddress": "No: 82, A9 Road, Navatkuli Junction, Kaithady, Jaffna",
+    "openHours": "Open Daily: 6:00 AM – 10:30 PM",
+    "callUs": "Call: +94 77 123 4567",
+    "home": "Home",
+    "menu": "Menu & Foods",
+    "adminLogin": "Admin Portal",
+    "getDirections": "Location & Map",
+    "orderWhatsApp": "Order via WhatsApp",
+    "quickCall": "Call Now"
+  },
+  "hero": {
+    "badge": "Authentic Ceylon Fine Dining & Street Specialties",
+    "titlePrefix": "PEARL",
+    "titleSuffix": "HOTEL",
+    "subtitle": "Fresh Foods • Best Taste • Premium Quality",
+    "description": "Experience authentic Jaffna cuisine. From sizzling Kottu and aromatic Dum Biriyani to crispy Appam and Ceylon teas, prepared fresh daily.",
+    "viewMenu": "View Menu",
+    "exploreFoods": "Explore Foods",
+    "topRated": "Top Rated",
+    "freshDishes": "50+ Dishes",
+    "freshQuality": "100% Fresh",
+    "chefSignature": "Chef Signature",
+    "biryaniTitle": "Chicken Dum Biriyani",
+    "hotItem": "🔥 Hot Item",
+    "sizzlingKottu": "Sizzling Kottu",
+    "kottuFromPrice": "From Rs. 800",
+    "freshHotTea": "Fresh & Hot Tea",
+    "pureCeylonBrew": "Pure Ceylon Brew"
+  },
+  "storefront": {
+    "ourLocation": "Visit Our Restaurant",
+    "title": "Experience Pearl Hotel Live",
+    "description": "Located conveniently at Navatkuli Junction along A9 road, Jaffna. Visit us for live hot Kottu, Appam, Ceylon tea & comfortable dining.",
+    "liveFrontTag": "Live Restaurant Front",
+    "branchTitle": "Pearl Hotel - A9 Highway Branch",
+    "junctionSub": "Navatkuli Junction, Kaithady, Jaffna",
+    "addressLabel": "Address:",
+    "fullAddress": "No: 82, A9 Road, Navatkuli Junction, Kaithady, Jaffna, Sri Lanka",
+    "phoneLabel": "Phone:",
+    "phoneNumbers": "+94 77 123 4567 / +94 21 222 3456",
+    "hoursLabel": "Opening Hours:",
+    "hoursDetail": "Open 7 Days a Week: 6:00 AM – 10:30 PM (Hot Kottu & Tea available till closing)",
+    "openDirectionsMaps": "Open Directions in Google Maps"
+  },
+  "search": {
+    "menuBadge": "Pearl Hotel Jaffna Menu",
+    "ourMenuTitle": "Our Menu",
+    "ourMenuHighlight": "Section by Section",
+    "menuDesc": "Browse authentic dishes categorized section by section. Select any category pill to filter directly.",
+    "placeholder": "Search dishes, ingredients...",
+    "all": "All",
+    "vegOnly": "Veg Only",
+    "nonVegOnly": "Non-Veg Only",
+    "resultsFound": "dishes available",
+    "noFoodsFound": "No Food Items Found",
+    "resetFilters": "Reset Filters",
+    "sortByLabel": "Sort By:",
+    "sortDefault": "Default Category",
+    "sortPriceLow": "Price: Low to High",
+    "sortPriceHigh": "Price: High to Low",
+    "sortRating": "Top Rated"
+  },
+  "categories": {
+    "All": "All Categories",
+    "Breakfast & Snacks": "Breakfast & Snacks",
+    "Tea & Beverages": "Tea & Beverages",
+    "Curries": "Curries",
+    "Meals": "Meals",
+    "Specials & Devils": "Specials & Devils",
+    "Biryani": "Biryani",
+    "Rice Table": "Rice Table",
+    "Kottu Table": "Kottu Table"
+  },
+  "food": {
+    "veg": "VEG",
+    "nonVeg": "NON-VEG",
+    "available": "Available Now",
+    "outOfStock": "Out of Stock",
+    "prepTime": "Prep:",
+    "priceLabel": "PRICE",
+    "viewDetails": "View Details",
+    "orderNow": "Order Now",
+    "close": "Close",
+    "qualityShield": "Prepared in accordance with Pearl Hotel Jaffna strict food hygiene & quality standards.",
+    "whatsappOrderMessage": "Hello Pearl Hotel! I would like to order:"
+  },
+  "foodItems": {
+    "Plain Tea": {
+      "name": "Plain Tea",
+      "description": "Brewed pure Ceylon black tea served steaming hot."
+    },
+    "Milk Tea": {
+      "name": "Milk Tea",
+      "description": "Rich Ceylon black tea brewed with fresh steamed milk and subtle sweetness."
+    },
+    "Ginger Ceylon Tea": {
+      "name": "Ginger Ceylon Tea",
+      "description": "Steaming black Ceylon tea infused with freshly crushed spicy ginger root."
+    },
+    "Cardamom Special Tea": {
+      "name": "Cardamom Special Tea",
+      "description": "Fragrant spicy Ceylon tea infused with aromatic green cardamom pods."
+    },
+    "Light Tea": {
+      "name": "Light Tea",
+      "description": "Mild Ceylon black tea infusion, light and aromatic."
+    },
+    "Nestomalt": {
+      "name": "Nestomalt",
+      "description": "Warm wholesome malted beverage rich in essential vitamins."
+    },
+    "Nescafe": {
+      "name": "Nescafe",
+      "description": "Rich aromatic coffee blend served hot with frothy milk."
+    },
+    "Fresh Lime Juice": {
+      "name": "Fresh Lime Juice",
+      "description": "Chilled freshly squeezed lime juice with mint leaves and ice."
+    },
+    "Passion Fruit Juice": {
+      "name": "Passion Fruit Juice",
+      "description": "Tropical fresh passion fruit juice, sweet and refreshing."
+    },
+    "Iced Milo": {
+      "name": "Iced Milo",
+      "description": "Cold chocolate malt drink served over crushed ice with extra Milo powder topping."
+    },
+    "Fresh King Coconut (Thambili)": {
+      "name": "Fresh King Coconut (Thambili)",
+      "description": "Natural sweet tropical king coconut water freshly opened."
+    },
+    "Plain Appam": {
+      "name": "Plain Appam",
+      "description": "Bowl-shaped coconut milk hopper with crispy golden edges."
+    },
+    "Paal Appam": {
+      "name": "Paal Appam",
+      "description": "Sweet coconut cream hopper infused with cardamom aroma."
+    },
+    "Egg Appam": {
+      "name": "Egg Appam",
+      "description": "Golden hopper with a soft poached egg cooked at the center."
+    },
+    "String Hopper": {
+      "name": "String Hopper (10 Pcs)",
+      "description": "Steamed rice noodle nests served with pol sambol and dahl curry (Set of 10)."
+    },
+    "Puttu": {
+      "name": "Puttu",
+      "description": "Steamed rice flour and coconut cylinders served with spiced curry."
+    },
+    "Dosai": {
+      "name": "Dosai",
+      "description": "Crispy paper thin fermented rice crepe served with coconut chutney & sambar."
+    },
+    "Parotta": {
+      "name": "Parotta",
+      "description": "Flaky layered griddled roti toasted golden brown."
+    },
+    "Roli / Roll": {
+      "name": "Roll / Roli",
+      "description": "Crispy fried classic pastry roll packed with savory stuffing."
+    },
+    "Veg Roll": {
+      "name": "Veg Roll",
+      "description": "Crunchy breaded roll stuffed with seasoned spiced vegetables."
+    },
+    "Egg Roll": {
+      "name": "Egg Roll",
+      "description": "Crispy roll stuffed with spiced potato filling and hard-boiled egg."
+    },
+    "Samosa": {
+      "name": "Samosa",
+      "description": "Golden fried triangular pastry filled with spiced potato and pea filling."
+    },
+    "Vadai": {
+      "name": "Vadai",
+      "description": "Traditional crunchy lentil fritter packed with onion and green chili."
+    },
+    "Methu Vadi / Ulundu Vadai": {
+      "name": "Methu Vadi / Ulundu Vadai",
+      "description": "Crispy black gram doughnut fritter seasoned with cumin and curry leaves."
+    },
+    "Vayppan": {
+      "name": "Vayppan",
+      "description": "Traditional sweet banana fritter snack fried crisp on the outside."
+    },
+    "Chicken Curry": {
+      "name": "Chicken Curry",
+      "description": "Tender chicken slow-cooked in rich dark roasted Ceylon curry spices."
+    },
+    "Beef Curry": {
+      "name": "Beef Curry",
+      "description": "Succulent beef simmered with thick spicy Ceylon gravy."
+    },
+    "Mutton Curry": {
+      "name": "Mutton Curry",
+      "description": "Premium tender mutton cooked in clay pot curry spices."
+    },
+    "Fish Curry": {
+      "name": "Fish Curry",
+      "description": "Fresh ocean fish simmered in tangy goraka and coconut curry."
+    },
+    "Fish Fry": {
+      "name": "Fish Fry",
+      "description": "Pan-fried sea fish marinated in red chili paste and spices."
+    },
+    "Veg Meal": {
+      "name": "Veg Meal",
+      "description": "Traditional Sri Lankan rice platter with dahl, 4 veggie curries & papadam."
+    },
+    "Fish Meal": {
+      "name": "Fish Meal",
+      "description": "Authentic rice thali served with sea fish curry, vegetable sides & sambol."
+    },
+    "Egg Meal": {
+      "name": "Egg Meal",
+      "description": "Rice meal platter featuring spiced hard-boiled eggs in red curry gravy."
+    },
+    "Chicken Meal": {
+      "name": "Chicken Meal",
+      "description": "Full rice thali served with roasted chicken curry & 4 vegetable curries."
+    },
+    "Beef Meal": {
+      "name": "Beef Meal",
+      "description": "Hearty rice platter served with dark spicy beef curry and sides."
+    },
+    "Mulisa Meal (Mutton Special Meal)": {
+      "name": "Mulisa Meal (Mutton Special Meal)",
+      "description": "Pearl Hotel Royal Special banana-leaf thali served with tender mutton curry."
+    },
+    "Omelette": {
+      "name": "Omelette",
+      "description": "Fluffy double-egg omelette pan-fried with onions, tomatoes & green chili."
+    },
+    "Chicken Devil": {
+      "name": "Chicken Devil",
+      "description": "Crispy fried chicken chunks sautéed in sweet & spicy chili pepper sauce."
+    },
+    "Prawn Devil": {
+      "name": "Prawn Devil",
+      "description": "Juicy jumbo ocean prawns tossed in hot devilled chili glaze."
+    },
+    "Squid Devil": {
+      "name": "Squid Devil",
+      "description": "Tender ocean squid rings stir-fried with capsicum, onions & spicy pepper sauce."
+    },
+    "Beef Devil": {
+      "name": "Beef Devil",
+      "description": "Seared beef strips tossed in fiery tomato-chili reduction with bell peppers."
+    },
+    "Egg Biryani": {
+      "name": "Egg Biryani",
+      "description": "Fragrant basmati rice slow-cooked with exotic biryani spices & boiled egg."
+    },
+    "Chicken Biryani": {
+      "name": "Chicken Biryani",
+      "description": "Royal Dum Biryani layered with succulent spiced chicken leg & boiled egg."
+    },
+    "Chicken Dum Biryani": {
+      "name": "Chicken Dum Biryani",
+      "description": "Aromatic long grain basmati rice slow cooked in sealed handi with tender chicken."
+    },
+    "Beef Biryani": {
+      "name": "Beef Biryani",
+      "description": "Spiced basmati biryani cooked with tender beef chunks & caramelized onions."
+    },
+    "Mutton Biryani": {
+      "name": "Mutton Biryani",
+      "description": "Supreme Dum Biryani cooked with tender mutton pieces, mint & raita."
+    },
+    "Mutton Dum Biryani": {
+      "name": "Mutton Dum Biryani",
+      "description": "Succulent Ceylon mutton pieces layered with saffron basmati rice & boiled egg."
+    },
+    "Veg Rice (Full Portion)": {
+      "name": "Veg Rice (Full Portion)",
+      "description": "Wok-tossed basmati fried rice with fresh vegetables & soy glaze (Full portion)."
+    },
+    "Veg Rice (Half Portion)": {
+      "name": "Veg Rice (Half Portion)",
+      "description": "Half portion wok-tossed vegetable fried rice."
+    },
+    "Egg Rice (Full Portion)": {
+      "name": "Egg Rice (Full Portion)",
+      "description": "Savory fried rice scrambled with fresh farm eggs (Full portion)."
+    },
+    "Chicken Rice (Full Portion)": {
+      "name": "Chicken Rice (Full Portion)",
+      "description": "Signature fried rice tossed with juicy marinated chicken pieces (Full portion)."
+    },
+    "Beef Rice (Full Portion)": {
+      "name": "Beef Rice (Full Portion)",
+      "description": "Wok-fried rice with tender spiced beef cuts & green onions (Full portion)."
+    },
+    "Prawn Rice (Full Portion)": {
+      "name": "Prawn Rice (Full Portion)",
+      "description": "Aromatic fried rice loaded with ocean prawns (Full portion)."
+    },
+    "Squid Rice (Full Portion)": {
+      "name": "Squid Rice (Full Portion)",
+      "description": "Seafood fried rice with seasoned squid rings (Full portion)."
+    },
+    "Mix Rice (Full Portion)": {
+      "name": "Mix Rice (Full Portion)",
+      "description": "Ultimate mixed fried rice loaded with chicken, beef, prawns & egg (Full portion)."
+    },
+    "Veg Kottu (Full Portion)": {
+      "name": "Veg Kottu (Full Portion)",
+      "description": "Shredded godamba roti stir-fried with vegetables & spices (Full portion)."
+    },
+    "Egg Kottu (Full Portion)": {
+      "name": "Egg Kottu (Full Portion)",
+      "description": "Chopped roti cooked on iron flat top with scrambled egg and curry (Full portion)."
+    },
+    "Chicken Kottu (Full Portion)": {
+      "name": "Chicken Kottu (Full Portion)",
+      "description": "Classic Sri Lankan street food chopped roti with roasted chicken & curry gravy (Full portion)."
+    },
+    "Chicken Kottu (Half)": {
+      "name": "Chicken Kottu (Half)",
+      "description": "Sizzling godamba roti kottu chopped with chicken pieces & spicy gravy (Half portion)."
+    },
+    "Chicken Kottu (Full)": {
+      "name": "Chicken Kottu (Full)",
+      "description": "Generous full portion of sizzling shredded kottu packed with roasted chicken & egg."
+    },
+    "Beef Kottu (Full Portion)": {
+      "name": "Beef Kottu (Full Portion)",
+      "description": "Spicy chopped roti with tender beef, egg & rich beef gravy (Full portion)."
+    },
+    "Prawn Kottu (Full Portion)": {
+      "name": "Prawn Kottu (Full Portion)",
+      "description": "Seafood special kottu chopped with fresh prawns, egg & capsicum (Full portion)."
+    },
+    "Squid Kottu (Full Portion)": {
+      "name": "Squid Kottu (Full Portion)",
+      "description": "Tender squid rings chopped with roti, veggies & seafood sauce (Full portion)."
+    },
+    "Mix Kottu (Full Portion)": {
+      "name": "Mix Kottu (Full Portion)",
+      "description": "The supreme royal kottu combining chicken, beef, prawns & egg (Full portion)."
+    },
+    "Seafood Mix Kottu": {
+      "name": "Seafood Mix Kottu",
+      "description": "Ocean squid, cuttlefish, and fresh prawns chopped in rich Jaffna curry kottu."
+    }
+  },
+  "reviews": {
+    "badge": "Customer Feedback",
+    "title": "What Our Diners Say",
+    "subtitle": "Real feedback from local diners, families, and travelers dining at Pearl Hotel.",
+    "avgRating": "4.9 out of 5",
+    "basedOn": "based on 850+ Jaffna diners",
+    "writeReview": "Write a Review",
+    "addReviewTitle": "Share Your Dining Experience",
+    "addReviewSubtitle": "Your feedback helps us maintain premium quality dining.",
+    "yourName": "Your Name",
+    "yourNamePlaceholder": "e.g. Aravinth S.",
+    "yourReview": "Your Review",
+    "reviewPlaceholder": "Write your experience with our food and service...",
+    "ratingLabel": "Rating (1 to 5 Stars)",
+    "dishOrdered": "Dish Ordered (Optional)",
+    "dishPlaceholder": "e.g. Chicken Kottu, Ceylon Milk Tea...",
+    "submitReview": "Submit Review",
+    "cancel": "Cancel",
+    "reviewSubmitted": "Thank you for your review!",
+    "verifiedCustomer": "Verified Customer",
+    "verifiedDiner": "Verified Diner",
+    "justNow": "Just now",
+    "defaultDish": "Pearl Hotel Dish",
+    "item1": {
+      "location": "Jaffna Town",
+      "date": "2 days ago",
+      "comment": "Best Chicken Kottu in Jaffna! The godamba roti is super fresh, perfectly shredded with hot spicy gravy. Ceylon Milk Tea afterwards was top notch!",
+      "dish": "Chicken Kottu & Ceylon Milk Tea"
+    },
+    "item2": {
+      "location": "Nallur",
+      "date": "1 week ago",
+      "comment": "Ordered Chicken Dum Biriyani and Paal Appam. Delivered steaming hot via WhatsApp order. Rich authentic taste with generous chicken portions.",
+      "dish": "Chicken Dum Biriyani"
+    },
+    "item3": {
+      "location": "Colombo (Tourist)",
+      "date": "2 weeks ago",
+      "comment": "Stopped by Pearl Hotel at Navatkuli junction while driving on A9 road. Outstanding seafood devil prawns and fresh King Coconut! Must visit.",
+      "dish": "Prawns Devil & Thambili"
+    },
+    "item4": {
+      "location": "Kaithady",
+      "date": "3 weeks ago",
+      "comment": "Egg Appam with Pol Sambol for breakfast was amazing. Quick service and very clean environment. Their Cardamom Special Tea is aromatic!",
+      "dish": "Egg Appam & Cardamom Tea"
+    }
+  },
+  "banner": {
+    "masterChefsTitle": "Master Culinary Chefs",
+    "masterChefsDesc": "Every Kottu, Biryani, and Curry is cooked to order using authentic traditional Jaffna recipes.",
+    "freshDailyTitle": "100% Fresh Daily",
+    "freshDailyDesc": "We source fresh market produce, sea prawns, ocean squid, and fresh Ceylon meats daily for maximum taste.",
+    "fineDiningTitle": "Ceylon Fine Dining",
+    "fineDiningDesc": "Section by section menu browsing, dark luxury aesthetic, and instant WhatsApp ordering."
+  },
+  "quickOrder": {
+    "title": "Quick WhatsApp Order",
+    "subtitle": "Confirm your order details to send directly via WhatsApp.",
+    "itemLabel": "Selected Item:",
+    "portionQuantity": "Quantity / Portion:",
+    "customerName": "Your Name:",
+    "namePlaceholder": "Enter your full name",
+    "phone": "Phone Number:",
+    "phonePlaceholder": "Enter phone number",
+    "deliveryAddress": "Delivery / Table Address:",
+    "addressPlaceholder": "Enter delivery address or Table No.",
+    "notes": "Special Instructions / Notes:",
+    "notesPlaceholder": "e.g. Extra spicy gravy, less sugar...",
+    "sendOrderBtn": "Send Order on WhatsApp",
+    "cancelBtn": "Cancel"
+  },
+  "addFood": {
+    "modalTitle": "+ Add New Food Product",
+    "editTitle": "Edit Food Product",
+    "subtitle": "Fill in the product details to add to Pearl Hotel menu.",
+    "foodName": "Food Item Name",
+    "category": "Category",
+    "price": "Price (LKR)",
+    "prepTime": "Prep Time",
+    "isVeg": "Vegetarian Item",
+    "isAvailable": "Available in Stock",
+    "imageUrl": "Image URL",
+    "description": "Food Description",
+    "submitAdd": "Add Food Product",
+    "submitUpdate": "Update Food Product",
+    "cancel": "Cancel",
+    "addSuccess": "Food product added successfully!",
+    "updateSuccess": "Food product updated successfully!"
+  },
+  "admin": {
+    "portalTitle": "Pearl Hotel Admin Protected Portal",
+    "logout": "Logout",
+    "authTitle": "Admin Authentication",
+    "authSubtitle": "Enter admin passcode to manage menu products & categories",
+    "passcodeLabel": "ADMIN PASSCODE",
+    "passcodePlaceholder": "Enter Passcode",
+    "loginBtn": "Login to Admin",
+    "invalidPasscode": "Incorrect admin passcode!",
+    "adminSuccess": "Welcome to Pearl Hotel Admin Dashboard",
+    "dashboardTitle": "Menu & Products Management",
+    "tabFoods": "Food Products",
+    "tabCategories": "Categories",
+    "totalFoods": "Total Dishes",
+    "availableCount": "In Stock Items",
+    "categoriesCount": "Active Categories",
+    "topRatedCount": "Top Rated Dishes",
+    "addNewFood": "+ Add Food",
+    "addNewCategory": "+ Add Category",
+    "tableImage": "Image",
+    "tableName": "Name",
+    "tableCategory": "Category",
+    "tablePrice": "Price",
+    "tableVeg": "Veg Status",
+    "tableStatus": "Status",
+    "tableActions": "Actions",
+    "actionEdit": "Edit",
+    "actionDelete": "Delete",
+    "actionToggle": "Toggle Status",
+    "deleteConfirmTitle": "Delete Food Item",
+    "deleteConfirmDesc": "Are you sure you want to delete this food item from the menu?",
+    "confirmDeleteBtn": "Yes, Delete",
+    "deleteSuccess": "Food product deleted successfully!"
+  },
+  "footer": {
+    "tagline": "Fresh Foods • Best Taste • Premium Quality",
+    "description": "Jaffna’s premier dining venue serving authentic Kottu, Biriyani, Ceylon teas, and Sri Lankan specialties.",
+    "quickLinks": "Quick Navigation",
+    "topSpecialties": "Top Specialties",
+    "specialtyKottu": "Sizzling Chicken & Seafood Kottu",
+    "specialtyBiryani": "Dum Biryani & Special Rice Platters",
+    "specialtyAppam": "Authentic Egg & Milk Paal Appam",
+    "specialtyDevils": "Devilled Prawns, Squid & Chicken",
+    "specialtyTeas": "Ceylon Black, Milk & Cardamom Teas",
+    "visitContact": "Visit & Contact",
+    "rights": "All Rights Reserved. Pearl Hotel Restaurant.",
+    "designedBy": "Designed by PIRA AI AURA Team",
+    "creativeTagline": "Creative • Intelligent • Impactful",
+    "craftedWith": "Crafted for Authentic Ceylon Food Lovers"
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "desc": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home"
+  }
+}

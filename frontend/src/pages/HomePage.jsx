@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import HeroSection from '../components/HeroSection';
 import CategoryFilter from '../components/CategoryFilter';
 import SearchBar from '../components/SearchBar';
@@ -111,13 +110,13 @@ export default function HomePage() {
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-600/30 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-3">
             <ChefHat className="w-4 h-4 text-gold-400" />
-            <span>{t('menuBadge')}</span>
+            <span>{t('search.menuBadge')}</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-black text-white tracking-tight">
-            {t('ourMenuTitle')} <span className="gold-gradient-text">{t('ourMenuHighlight')}</span>
+            {t('search.ourMenuTitle')} <span className="gold-gradient-text">{t('search.ourMenuHighlight')}</span>
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base font-light">
-            {t('menuDesc')}
+            {t('search.menuDesc')}
           </p>
         </div>
 
@@ -148,9 +147,9 @@ export default function HomePage() {
         ) : groupedSections.length === 0 ? (
           <div className="py-20 text-center glass-panel rounded-3xl p-8 border border-slate-800">
             <Utensils className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-            <h3 className="font-serif text-xl font-bold text-white">{t('noFoodsFound')}</h3>
+            <h3 className="font-serif text-xl font-bold text-white">{t('search.noFoodsFound')}</h3>
             <p className="text-slate-400 text-sm mt-1">
-              No matching items for "{searchTerm}" in category "{tCategory(activeCategory)}".
+              No matching items found.
             </p>
             <button
               onClick={() => {
@@ -160,7 +159,7 @@ export default function HomePage() {
               }}
               className="mt-6 px-6 py-2.5 rounded-full gold-gradient-bg text-dark-950 font-bold text-xs shadow-gold-glow"
             >
-              {t('resetFilters')}
+              {t('search.resetFilters')}
             </button>
           </div>
         ) : (
@@ -182,13 +181,13 @@ export default function HomePage() {
                           {tCategory(section.categoryName)}
                         </h3>
                         <p className="text-xs text-slate-400 font-light">
-                          {section.items.length} items in this section
+                          {section.items.length} {t('search.resultsFound')}
                         </p>
                       </div>
                     </div>
 
                     <span className="text-xs font-semibold px-3 py-1 rounded-full bg-dark-900 text-gold-400 border border-gold-600/30 hidden sm:inline-block">
-                      PEARL HOTEL
+                      {t('nav.brandName')}
                     </span>
                   </div>
 
@@ -219,9 +218,9 @@ export default function HomePage() {
             <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-4">
               <Award className="w-7 h-7" />
             </div>
-            <h3 className="font-serif text-xl font-bold text-white">Master Culinary Chefs</h3>
+            <h3 className="font-serif text-xl font-bold text-white">{t('banner.masterChefsTitle')}</h3>
             <p className="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              Every Kottu, Biryani, and Curry is cooked to order using authentic traditional Jaffna recipes.
+              {t('banner.masterChefsDesc')}
             </p>
           </div>
 
@@ -229,9 +228,9 @@ export default function HomePage() {
             <div className="w-14 h-14 rounded-2xl bg-crimson-800/20 border border-crimson-800/40 flex items-center justify-center text-red-400 mb-4">
               <Flame className="w-7 h-7" />
             </div>
-            <h3 className="font-serif text-xl font-bold text-white">100% Fresh Daily</h3>
+            <h3 className="font-serif text-xl font-bold text-white">{t('banner.freshDailyTitle')}</h3>
             <p className="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              We source fresh market produce, sea prawns, ocean squid, and fresh Ceylon meats daily for maximum taste.
+              {t('banner.freshDailyDesc')}
             </p>
           </div>
 
@@ -239,9 +238,9 @@ export default function HomePage() {
             <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-4">
               <Sparkles className="w-7 h-7" />
             </div>
-            <h3 className="font-serif text-xl font-bold text-white">Ceylon Fine Dining</h3>
+            <h3 className="font-serif text-xl font-bold text-white">{t('banner.fineDiningTitle')}</h3>
             <p className="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              Section by section menu browsing, dark luxury aesthetic, and instant WhatsApp ordering.
+              {t('banner.fineDiningDesc')}
             </p>
           </div>
         </div>

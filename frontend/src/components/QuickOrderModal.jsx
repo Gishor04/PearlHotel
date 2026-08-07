@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShoppingBag, Plus, Minus, Trash2, ArrowRight, Utensils, AlertCircle, ShieldAlert } from 'lucide-react';
+import { X, ShoppingBag, Plus, Minus, Trash2, ArrowRight, Utensils, ShieldAlert } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import toast from 'react-hot-toast';
 
 export default function QuickOrderModal({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onClearCart }) {
+  const { t, tFood } = useLanguage();
   if (!isOpen) return null;
 
   const formatLKR = (amount) => `Rs. ${Number(amount).toLocaleString('en-LK')}`;
@@ -41,8 +43,8 @@ export default function QuickOrderModal({ isOpen, onClose, cartItems, onUpdateQu
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <div>
-                <h2 className="font-serif text-lg font-bold text-white">Your Order Tray</h2>
-                <p className="text-xs text-slate-400">Unpaid Table Draft Selection</p>
+                <h2 className="font-serif text-lg font-bold text-white">{t('quickOrder.title')}</h2>
+                <p className="text-xs text-slate-400">{t('quickOrder.subtitle')}</p>
               </div>
             </div>
             <button
@@ -72,48 +74,51 @@ export default function QuickOrderModal({ isOpen, onClose, cartItems, onUpdateQu
                 </p>
               </div>
             ) : (
-              cartItems.map((item) => (
-                <div
-                  key={item._id}
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-dark-950/80 border border-slate-800 gap-3"
-                >
-                  <img
-                    src={item.imageUrl}
-                    alt={item.name}
-                    className="w-14 h-14 rounded-xl object-cover"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-serif text-sm font-bold text-white truncate">{item.name}</h4>
-                    <p className="text-xs text-gold-400 font-semibold">{formatLKR(item.price)}</p>
-                  </div>
-
-                  {/* Quantity Controls */}
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-1.5 bg-dark-800 p-1 rounded-xl border border-slate-700">
-                      <button
-                        onClick={() => onUpdateQuantity(item._id, item.quantity - 1)}
-                        className="p-1 text-slate-300 hover:text-white"
-                      >
-                        <Minus className="w-3.5 h-3.5" />
-                      </button>
-                      <span className="text-xs font-bold text-white px-1">{item.quantity}</span>
-                      <button
-                        onClick={() => onUpdateQuantity(item._id, item.quantity + 1)}
-                        className="p-1 text-slate-300 hover:text-white"
-                      >
-                        <Plus className="w-3.5 h-3.5" />
-                      </button>
+              cartItems.map((item) => {
+                const translated = tFood(item);
+                return (
+                  <div
+                    key={item._id}
+                    className="flex items-center justify-between p-3.5 rounded-2xl bg-dark-950/80 border border-slate-800 gap-3"
+                  >
+                    <img
+                      src={item.imageUrl}
+                      alt={translated.name}
+                      className="w-14 h-14 rounded-xl object-cover"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-serif text-sm font-bold text-white truncate">{translated.name}</h4>
+                      <p className="text-xs text-gold-400 font-semibold">{formatLKR(item.price)}</p>
                     </div>
 
-                    <button
-                      onClick={() => onRemoveItem(item._id)}
-                      className="p-1.5 text-slate-500 hover:text-red-400 transition-colors"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                    {/* Quantity Controls */}
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5 bg-dark-800 p-1 rounded-xl border border-slate-700">
+                        <button
+                          onClick={() => onUpdateQuantity(item._id, item.quantity - 1)}
+                          className="p-1 text-slate-300 hover:text-white"
+                        >
+                          <Minus className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="text-xs font-bold text-white px-1">{item.quantity}</span>
+                        <button
+                          onClick={() => onUpdateQuantity(item._id, item.quantity + 1)}
+                          className="p-1 text-slate-300 hover:text-white"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      <button
+                        onClick={() => onRemoveItem(item._id)}
+                        className="p-1.5 text-slate-500 hover:text-red-400 transition-colors"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
 

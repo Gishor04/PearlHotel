@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, X, ChevronUp } from 'lucide-react';
+import { Phone, MessageCircle, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function FloatingActions() {
@@ -34,7 +34,7 @@ export default function FloatingActions() {
               href="tel:+94771234567"
               className="px-2 py-0.5 rounded bg-gold-500 text-dark-950 font-black text-[10px]"
             >
-              CALL
+              {t('nav.quickCall')}
             </a>
           </div>
         )}
@@ -58,7 +58,7 @@ export default function FloatingActions() {
         aria-label="Order via WhatsApp"
       >
         <MessageCircle className="w-6 h-6 text-white fill-white group-hover:scale-110 transition-transform" />
-        <span className="hidden sm:inline font-sans tracking-wide">{t('orderWhatsApp')}</span>
+        <span className="hidden sm:inline font-sans tracking-wide">{t('nav.orderWhatsApp')}</span>
       </a>
 
     </div>

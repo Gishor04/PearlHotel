@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, Navigation, ExternalLink, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, Clock, Navigation, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function StorefrontLocationSection() {
@@ -27,9 +27,9 @@ export default function StorefrontLocationSection() {
               {/* Badge overlay on Image */}
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-panel border border-gold-500/30 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-bold tracking-widest text-gold-400 uppercase">Live Restaurant Front</span>
-                  <h4 className="font-serif text-base font-bold text-white">Pearl Hotel - A9 Highway Branch</h4>
-                  <p className="text-xs text-slate-300">Navatkuli Junction, Kaithady, Jaffna</p>
+                  <span className="text-[10px] font-bold tracking-widest text-gold-400 uppercase">{t('storefront.liveFrontTag')}</span>
+                  <h4 className="font-serif text-base font-bold text-white">{t('storefront.branchTitle')}</h4>
+                  <p className="text-xs text-slate-300">{t('storefront.junctionSub')}</p>
                 </div>
                 <a
                   href="https://maps.google.com/?q=Navatkuli+Junction,+Kaithady,+Jaffna"
@@ -49,13 +49,13 @@ export default function StorefrontLocationSection() {
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-600/30 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-3">
                 <MapPin className="w-4 h-4 text-gold-400" />
-                <span>{t('ourLocation')}</span>
+                <span>{t('storefront.ourLocation')}</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-white">
-                {t('storefrontTitle')}
+                {t('storefront.title')}
               </h2>
               <p className="mt-3 text-slate-300 text-sm font-light leading-relaxed">
-                {t('storefrontDesc')}
+                {t('storefront.description')}
               </p>
             </div>
 
@@ -68,9 +68,9 @@ export default function StorefrontLocationSection() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('addressLabel')}</span>
+                  <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('storefront.addressLabel')}</span>
                   <p className="text-sm font-medium text-white mt-0.5">
-                    No: 82, A9 Road, Navatkuli Junction, Kaithady, Jaffna, Sri Lanka
+                    {t('storefront.fullAddress')}
                   </p>
                 </div>
               </div>
@@ -82,14 +82,14 @@ export default function StorefrontLocationSection() {
                 </div>
                 <div className="flex-1 flex items-center justify-between">
                   <div>
-                    <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('phoneLabel')}</span>
-                    <p className="text-sm font-bold text-white mt-0.5">+94 77 123 4567 / +94 21 222 3456</p>
+                    <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('storefront.phoneLabel')}</span>
+                    <p className="text-sm font-bold text-white mt-0.5">{t('storefront.phoneNumbers')}</p>
                   </div>
                   <a
                     href="tel:+94771234567"
                     className="px-4 py-2 rounded-full gold-gradient-bg text-dark-950 text-xs font-bold shadow-gold-glow hover:scale-105 transition-transform"
                   >
-                    {t('quickCall')}
+                    {t('nav.quickCall')}
                   </a>
                 </div>
               </div>
@@ -100,9 +100,9 @@ export default function StorefrontLocationSection() {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('hoursLabel')}</span>
+                  <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('storefront.hoursLabel')}</span>
                   <p className="text-sm font-medium text-white mt-0.5">
-                    Open 7 Days a Week: 6:00 AM – 10:30 PM (Hot Kottu & Tea available till closing)
+                    {t('storefront.hoursDetail')}
                   </p>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function StorefrontLocationSection() {
               rel="noopener noreferrer"
               className="w-full py-3.5 rounded-2xl bg-dark-800 hover:bg-dark-700 text-white font-bold text-sm border border-gold-600/40 hover:border-gold-400 flex items-center justify-center gap-2 shadow-glass transition-all"
             >
-              <span>Open Directions in Google Maps</span>
+              <span>{t('storefront.openDirectionsMaps')}</span>
               <ExternalLink className="w-4 h-4 text-gold-400" />
             </a>
 

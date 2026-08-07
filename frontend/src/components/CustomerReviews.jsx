@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, MessageSquare, Plus, CheckCircle, UserCheck, ShieldCheck, ThumbsUp } from 'lucide-react';
+import { Star, Plus, ShieldCheck, ThumbsUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import toast from 'react-hot-toast';
 
@@ -8,41 +8,53 @@ const initialReviews = [
   {
     id: 1,
     name: 'Santhosh Raj',
-    location: 'Jaffna Town',
-    rating: 5,
-    date: '2 days ago',
-    comment: 'Best Chicken Kottu in Jaffna! The godamba roti is super fresh, perfectly shredded with hot spicy gravy. Ceylon Milk Tea afterwards was top notch!',
-    dish: 'Chicken Kottu & Ceylon Milk Tea',
+    locationKey: 'reviews.item1.location',
+    dateKey: 'reviews.item1.date',
+    commentKey: 'reviews.item1.comment',
+    dishKey: 'reviews.item1.dish',
+    defaultLocation: 'Jaffna Town',
+    defaultDate: '2 days ago',
+    defaultComment: 'Best Chicken Kottu in Jaffna! The godamba roti is super fresh, perfectly shredded with hot spicy gravy. Ceylon Milk Tea afterwards was top notch!',
+    defaultDish: 'Chicken Kottu & Ceylon Milk Tea',
     verified: true,
   },
   {
     id: 2,
     name: 'Priya Loganathan',
-    location: 'Nallur',
-    rating: 5,
-    date: '1 week ago',
-    comment: 'Ordered Chicken Dum Biriyani and Paal Appam. Delivered steaming hot via WhatsApp order. Rich authentic taste with generous chicken portions.',
-    dish: 'Chicken Dum Biriyani',
+    locationKey: 'reviews.item2.location',
+    dateKey: 'reviews.item2.date',
+    commentKey: 'reviews.item2.comment',
+    dishKey: 'reviews.item2.dish',
+    defaultLocation: 'Nallur',
+    defaultDate: '1 week ago',
+    defaultComment: 'Ordered Chicken Dum Biriyani and Paal Appam. Delivered steaming hot via WhatsApp order. Rich authentic taste with generous chicken portions.',
+    defaultDish: 'Chicken Dum Biriyani',
     verified: true,
   },
   {
     id: 3,
     name: 'Dilshan Silva',
-    location: 'Colombo (Tourist)',
-    rating: 5,
-    date: '2 weeks ago',
-    comment: 'Stopped by Pearl Hotel at Navatkuli junction while driving on A9 road. Outstanding seafood devil prawns and fresh King Coconut! Must visit.',
-    dish: 'Prawns Devil & Thambili',
+    locationKey: 'reviews.item3.location',
+    dateKey: 'reviews.item3.date',
+    commentKey: 'reviews.item3.comment',
+    dishKey: 'reviews.item3.dish',
+    defaultLocation: 'Colombo (Tourist)',
+    defaultDate: '2 weeks ago',
+    defaultComment: 'Stopped by Pearl Hotel at Navatkuli junction while driving on A9 road. Outstanding seafood devil prawns and fresh King Coconut! Must visit.',
+    defaultDish: 'Prawns Devil & Thambili',
     verified: true,
   },
   {
     id: 4,
     name: 'Kavitha S.',
-    location: 'Kaithady',
-    rating: 5,
-    date: '3 weeks ago',
-    comment: 'Egg Appam with Pol Sambol for breakfast was amazing. Quick service and very clean environment. Their Cardamom Special Tea is aromatic!',
-    dish: 'Egg Appam & Cardamom Tea',
+    locationKey: 'reviews.item4.location',
+    dateKey: 'reviews.item4.date',
+    commentKey: 'reviews.item4.comment',
+    dishKey: 'reviews.item4.dish',
+    defaultLocation: 'Kaithady',
+    defaultDate: '3 weeks ago',
+    defaultComment: 'Egg Appam with Pol Sambol for breakfast was amazing. Quick service and very clean environment. Their Cardamom Special Tea is aromatic!',
+    defaultDish: 'Egg Appam & Cardamom Tea',
     verified: true,
   },
 ];
@@ -68,18 +80,18 @@ export default function CustomerReviews() {
     const reviewObj = {
       id: Date.now(),
       name: newReview.name,
-      location: 'Verified Diner',
+      defaultLocation: 'Verified Diner',
       rating: Number(newReview.rating),
-      date: 'Just now',
-      comment: newReview.comment,
-      dish: newReview.dish || 'Pearl Hotel Dish',
+      defaultDate: 'Just now',
+      defaultComment: newReview.comment,
+      defaultDish: newReview.dish || 'Pearl Hotel Dish',
       verified: true,
     };
 
     setReviews([reviewObj, ...reviews]);
     setIsModalOpen(false);
     setNewReview({ name: '', rating: 5, comment: '', dish: '' });
-    toast.success(t('reviewSubmitted'));
+    toast.success(t('reviews.reviewSubmitted'));
   };
 
   return (
@@ -90,13 +102,13 @@ export default function CustomerReviews() {
         <div className="text-center md:text-left max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-600/30 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-3">
             <Star className="w-4 h-4 text-gold-400 fill-gold-400" />
-            <span>{t('reviewsBadge')}</span>
+            <span>{t('reviews.badge')}</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-black text-white tracking-tight">
-            {t('reviewsTitle')}
+            {t('reviews.title')}
           </h2>
           <p className="mt-2 text-slate-400 text-sm sm:text-base font-light">
-            Real feedback from local diners, families, and travelers dining at Pearl Hotel.
+            {t('reviews.subtitle')}
           </p>
         </div>
 
@@ -109,7 +121,7 @@ export default function CustomerReviews() {
                 <Star key={i} className="w-3.5 h-3.5 fill-gold-400" />
               ))}
             </div>
-            <span className="text-[10px] text-slate-400 mt-1 block">{t('basedOn')}</span>
+            <span className="text-[10px] text-slate-400 mt-1 block">{t('reviews.basedOn')}</span>
           </div>
 
           <button
@@ -117,59 +129,66 @@ export default function CustomerReviews() {
             className="flex items-center gap-2 px-5 py-3 rounded-xl gold-gradient-bg text-dark-950 font-bold text-xs shadow-gold-glow hover:scale-105 transition-transform"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
-            <span>{t('writeReview')}</span>
+            <span>{t('reviews.writeReview')}</span>
           </button>
         </div>
       </div>
 
       {/* Reviews Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {reviews.map((rev) => (
-          <motion.div
-            key={rev.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-6 rounded-2xl bg-dark-900/80 border border-slate-800/80 glass-panel flex flex-col justify-between hover:border-gold-500/40 transition-all group"
-          >
-            <div>
-              {/* Header with name & stars */}
-              <div className="flex items-start justify-between gap-2 mb-3">
-                <div>
-                  <h4 className="font-serif text-base font-bold text-white group-hover:text-gold-400 transition-colors">
-                    {rev.name}
-                  </h4>
-                  <span className="text-[11px] text-slate-400 font-light flex items-center gap-1">
-                    {rev.location} • <span className="text-slate-500">{rev.date}</span>
-                  </span>
+        {reviews.map((rev) => {
+          const locationText = rev.locationKey ? t(rev.locationKey) : (rev.defaultLocation || 'Verified Diner');
+          const dateText = rev.dateKey ? t(rev.dateKey) : (rev.defaultDate || 'Just now');
+          const commentText = rev.commentKey ? t(rev.commentKey) : rev.defaultComment;
+          const dishText = rev.dishKey ? t(rev.dishKey) : rev.defaultDish;
+
+          return (
+            <motion.div
+              key={rev.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-6 rounded-2xl bg-dark-900/80 border border-slate-800/80 glass-panel flex flex-col justify-between hover:border-gold-500/40 transition-all group"
+            >
+              <div>
+                {/* Header with name & stars */}
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <div>
+                    <h4 className="font-serif text-base font-bold text-white group-hover:text-gold-400 transition-colors">
+                      {rev.name}
+                    </h4>
+                    <span className="text-[11px] text-slate-400 font-light flex items-center gap-1">
+                      {locationText} • <span className="text-slate-500">{dateText}</span>
+                    </span>
+                  </div>
+                  {rev.verified && (
+                    <span className="p-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" title={t('reviews.verifiedCustomer')}>
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                    </span>
+                  )}
                 </div>
-                {rev.verified && (
-                  <span className="p-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" title="Verified Customer">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                  </span>
-                )}
+
+                {/* Star Rating */}
+                <div className="flex items-center gap-1 text-gold-400 mb-3">
+                  {[...Array(rev.rating || 5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-gold-400" />
+                  ))}
+                </div>
+
+                {/* Comment */}
+                <p className="text-xs text-slate-300 font-light leading-relaxed mb-4">
+                  "{commentText}"
+                </p>
               </div>
 
-              {/* Star Rating */}
-              <div className="flex items-center gap-1 text-gold-400 mb-3">
-                {[...Array(rev.rating)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-gold-400" />
-                ))}
+              {/* Dish Tag */}
+              <div className="pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px]">
+                <span className="text-gold-400/90 font-medium">🍽️ {dishText}</span>
+                <ThumbsUp className="w-3.5 h-3.5 text-slate-500" />
               </div>
-
-              {/* Comment */}
-              <p className="text-xs text-slate-300 font-light leading-relaxed mb-4">
-                "{rev.comment}"
-              </p>
-            </div>
-
-            {/* Dish Tag */}
-            <div className="pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px]">
-              <span className="text-gold-400/90 font-medium">🍽️ {rev.dish}</span>
-              <ThumbsUp className="w-3.5 h-3.5 text-slate-500" />
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Add Review Modal */}
@@ -184,17 +203,17 @@ export default function CustomerReviews() {
             </button>
 
             <h3 className="font-serif text-2xl font-bold text-white mb-1">
-              {t('addReviewTitle')}
+              {t('reviews.addReviewTitle')}
             </h3>
-            <p className="text-xs text-slate-400 mb-6">Your feedback helps us maintain premium quality dining.</p>
+            <p className="text-xs text-slate-400 mb-6">{t('reviews.addReviewSubtitle')}</p>
 
             <form onSubmit={handleSubmitReview} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">{t('yourName')}</label>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">{t('reviews.yourName')}</label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Aravinth S."
+                  placeholder={t('reviews.yourNamePlaceholder')}
                   value={newReview.name}
                   onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl bg-dark-950 border border-slate-700 text-white text-sm focus:border-gold-500 focus:outline-none"
@@ -202,23 +221,23 @@ export default function CustomerReviews() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">{t('ratingLabel')}</label>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">{t('reviews.ratingLabel')}</label>
                 <select
                   value={newReview.rating}
                   onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl bg-dark-950 border border-slate-700 text-white text-sm focus:border-gold-500 focus:outline-none"
                 >
-                  <option value={5}>⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
-                  <option value={4}>⭐⭐⭐⭐ (4/5 Very Good)</option>
-                  <option value={3}>⭐⭐⭐ (3/5 Good)</option>
+                  <option value={5}>⭐⭐⭐⭐⭐ (5/5)</option>
+                  <option value={4}>⭐⭐⭐⭐ (4/5)</option>
+                  <option value={3}>⭐⭐⭐ (3/5)</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Dish Ordered (Optional)</label>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">{t('reviews.dishOrdered')}</label>
                 <input
                   type="text"
-                  placeholder="e.g. Chicken Kottu, Ceylon Milk Tea..."
+                  placeholder={t('reviews.dishPlaceholder')}
                   value={newReview.dish}
                   onChange={(e) => setNewReview({ ...newReview, dish: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl bg-dark-950 border border-slate-700 text-white text-sm focus:border-gold-500 focus:outline-none"
@@ -226,11 +245,11 @@ export default function CustomerReviews() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">{t('yourReview')}</label>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">{t('reviews.yourReview')}</label>
                 <textarea
                   required
                   rows={3}
-                  placeholder="Write your experience with our food and service..."
+                  placeholder={t('reviews.reviewPlaceholder')}
                   value={newReview.comment}
                   onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl bg-dark-950 border border-slate-700 text-white text-sm focus:border-gold-500 focus:outline-none"
@@ -243,13 +262,13 @@ export default function CustomerReviews() {
                   onClick={() => setIsModalOpen(false)}
                   className="flex-1 py-3 rounded-xl bg-dark-800 text-slate-300 text-xs font-bold hover:bg-dark-700"
                 >
-                  Cancel
+                  {t('reviews.cancel')}
                 </button>
                 <button
                   type="submit"
                   className="flex-1 py-3 rounded-xl gold-gradient-bg text-dark-950 text-xs font-bold shadow-gold-glow"
                 >
-                  {t('submitReview')}
+                  {t('reviews.submitReview')}
                 </button>
               </div>
             </form>

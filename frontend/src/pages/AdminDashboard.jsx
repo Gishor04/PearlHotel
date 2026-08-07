@@ -4,15 +4,11 @@ import {
   Plus,
   Edit2,
   Trash2,
-  ToggleLeft,
-  ToggleRight,
   Utensils,
   Grid,
   Search,
   CheckCircle,
   XCircle,
-  Image as ImageIcon,
-  Sparkles,
   RefreshCw,
   X,
 } from 'lucide-react';
@@ -26,9 +22,11 @@ import {
   createCategory,
   deleteCategory,
 } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 import toast from 'react-hot-toast';
 
 export default function AdminDashboard() {
+  const { t, tCategory, tFood } = useLanguage();
   const [activeTab, setActiveTab] = useState('foods'); // 'foods' | 'categories'
   const [foods, setFoods] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -43,7 +41,7 @@ export default function AdminDashboard() {
   // Add/Edit Food Form State
   const [foodForm, setFoodForm] = useState({
     name: '',
-    category: 'Breakfast',
+    category: 'Breakfast & Snacks',
     price: '',
     isAvailable: true,
     isVeg: false,
@@ -80,7 +78,7 @@ export default function AdminDashboard() {
   const handleOpenAddFood = () => {
     setFoodForm({
       name: '',
-      category: categories[0]?.name || 'Breakfast',
+      category: categories[0]?.name || 'Breakfast & Snacks',
       price: '',
       isAvailable: true,
       isVeg: false,
@@ -118,14 +116,14 @@ export default function AdminDashboard() {
       if (editingFood) {
         const res = await updateFood(editingFood._id, foodForm);
         if (res.success) {
-          toast.success(`Updated ${foodForm.name} successfully!`);
+          toast.success(t('addFood.updateSuccess'));
           setEditingFood(null);
           fetchAdminData();
         }
       } else {
         const res = await createFood(foodForm);
         if (res.success) {
-          toast.success(`Added new dish ${foodForm.name}!`);
+          toast.success(t('addFood.addSuccess'));
           setIsAddFoodOpen(false);
           fetchAdminData();
         }
@@ -141,7 +139,7 @@ export default function AdminDashboard() {
     try {
       const res = await toggleAvailability(id);
       if (res.success) {
-        toast.success(`${currentName} availability toggled!`);
+        toast.success(`Availability toggled!`);
         setFoods(foods.map((f) => (f._id === id ? { ...f, isAvailable: !f.isAvailable } : f)));
       }
     } catch (error) {
@@ -151,11 +149,11 @@ export default function AdminDashboard() {
 
   // Delete Food Item
   const handleDeleteFood = async (id, name) => {
-    if (window.confirm(`Are you sure you want to delete "${name}"?`)) {
+    if (window.confirm(`${t('admin.deleteConfirmTitle')} (${name})`)) {
       try {
         const res = await deleteFood(id);
         if (res.success) {
-          toast.success(`Deleted ${name} from menu.`);
+          toast.success(t('admin.deleteSuccess'));
           setFoods(foods.filter((f) => f._id !== id));
         }
       } catch (error) {
@@ -215,10 +213,10 @@ export default function AdminDashboard() {
           </div>
           <div>
             <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-white">
-              Pearl Hotel <span className="gold-gradient-text">Admin Panel</span>
+              {t('nav.brandName')} <span className="gold-gradient-text">{t('admin.dashboardTitle')}</span>
             </h1>
             <p className="text-xs text-slate-400">
-              Instant menu management • Add, Edit, Delete Foods & Categories • Price & Availability control
+              {t('admin.authSubtitle')}
             </p>
           </div>
         </div>
@@ -234,7 +232,7 @@ export default function AdminDashboard() {
             }`}
           >
             <Utensils className="w-4 h-4" />
-            Manage Foods ({foods.length})
+            {t('admin.tabFoods')} ({foods.length})
           </button>
           <button
             onClick={() => setActiveTab('categories')}
@@ -245,7 +243,7 @@ export default function AdminDashboard() {
             }`}
           >
             <Grid className="w-4 h-4" />
-            Categories ({categories.length})
+            {t('admin.tabCategories')} ({categories.length})
           </button>
         </div>
       </div>
@@ -259,7 +257,7 @@ export default function AdminDashboard() {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-400" />
               <input
                 type="text"
-                placeholder="Filter admin items..."
+                placeholder={t('search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-dark-900 border border-slate-800 text-white text-xs placeholder-slate-500 focus:border-gold-500 focus:outline-none"
@@ -271,7 +269,7 @@ export default function AdminDashboard() {
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl gold-gradient-bg text-dark-950 font-bold text-xs shadow-gold-glow hover:scale-105 transition-transform"
             >
               <Plus className="w-4 h-4" />
-              <span>Add New Food</span>
+              <span>{t('admin.addNewFood')}</span>
             </button>
           </div>
 
@@ -287,101 +285,104 @@ export default function AdminDashboard() {
                 <table className="w-full text-left text-xs">
                   <thead className="bg-dark-950 text-slate-400 uppercase font-serif border-b border-slate-800">
                     <tr>
-                      <th className="py-4 px-6">Food Dish</th>
-                      <th className="py-4 px-4">Category</th>
-                      <th className="py-4 px-4">Price (LKR)</th>
-                      <th className="py-4 px-4">Type</th>
-                      <th className="py-4 px-4">Availability</th>
-                      <th className="py-4 px-6 text-right">Actions</th>
+                      <th className="py-4 px-6">{t('admin.tableName')}</th>
+                      <th className="py-4 px-4">{t('admin.tableCategory')}</th>
+                      <th className="py-4 px-4">{t('admin.tablePrice')}</th>
+                      <th className="py-4 px-4">{t('admin.tableVeg')}</th>
+                      <th className="py-4 px-4">{t('admin.tableStatus')}</th>
+                      <th className="py-4 px-6 text-right">{t('admin.tableActions')}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 text-slate-200">
-                    {filteredFoodsAdmin.map((item) => (
-                      <tr key={item._id} className="hover:bg-dark-800/50 transition-colors">
-                        {/* Food Name & Thumbnail */}
-                        <td className="py-3.5 px-6 flex items-center gap-3">
-                          <img
-                            src={item.imageUrl}
-                            alt={item.name}
-                            className="w-12 h-12 rounded-xl object-cover border border-slate-700"
-                          />
-                          <div>
-                            <span className="font-serif font-bold text-sm text-white block">
-                              {item.name}
+                    {filteredFoodsAdmin.map((item) => {
+                      const translated = tFood(item);
+                      return (
+                        <tr key={item._id} className="hover:bg-dark-800/50 transition-colors">
+                          {/* Food Name & Thumbnail */}
+                          <td className="py-3.5 px-6 flex items-center gap-3">
+                            <img
+                              src={item.imageUrl}
+                              alt={translated.name}
+                              className="w-12 h-12 rounded-xl object-cover border border-slate-700"
+                            />
+                            <div>
+                              <span className="font-serif font-bold text-sm text-white block">
+                                {translated.name}
+                              </span>
+                              <span className="text-[11px] text-slate-400 line-clamp-1 max-w-xs">
+                                {translated.description}
+                              </span>
+                            </div>
+                          </td>
+
+                          {/* Category */}
+                          <td className="py-3.5 px-4 font-semibold text-gold-400">
+                            {tCategory(item.category)}
+                          </td>
+
+                          {/* Price */}
+                          <td className="py-3.5 px-4 font-serif font-bold text-white text-sm">
+                            Rs. {Number(item.price).toLocaleString('en-LK')}
+                          </td>
+
+                          {/* Type */}
+                          <td className="py-3.5 px-4">
+                            <span
+                              className={`px-2.5 py-1 rounded-md text-[10px] font-bold border ${
+                                item.isVeg
+                                  ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
+                                  : 'bg-red-950/60 text-red-400 border-red-500/30'
+                              }`}
+                            >
+                              {item.isVeg ? t('food.veg') : t('food.nonVeg')}
                             </span>
-                            <span className="text-[11px] text-slate-400 line-clamp-1 max-w-xs">
-                              {item.description || 'No description provided'}
-                            </span>
-                          </div>
-                        </td>
+                          </td>
 
-                        {/* Category */}
-                        <td className="py-3.5 px-4 font-semibold text-gold-400">
-                          {item.category}
-                        </td>
+                          {/* Availability Toggle */}
+                          <td className="py-3.5 px-4">
+                            <button
+                              onClick={() => handleToggleAvailability(item._id, item.name)}
+                              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border transition-all ${
+                                item.isAvailable
+                                  ? 'bg-emerald-950/80 border-emerald-500/40 text-emerald-400 hover:bg-emerald-900/80'
+                                  : 'bg-red-950/80 border-red-500/40 text-red-400 hover:bg-red-900/80'
+                              }`}
+                            >
+                              {item.isAvailable ? (
+                                <>
+                                  <CheckCircle className="w-3 h-3" />
+                                  {t('food.available')}
+                                </>
+                              ) : (
+                                <>
+                                  <XCircle className="w-3 h-3" />
+                                  {t('food.outOfStock')}
+                                </>
+                              )}
+                            </button>
+                          </td>
 
-                        {/* Price */}
-                        <td className="py-3.5 px-4 font-serif font-bold text-white text-sm">
-                          Rs. {Number(item.price).toLocaleString('en-LK')}
-                        </td>
+                          {/* Edit / Delete Buttons */}
+                          <td className="py-3.5 px-6 text-right space-x-2">
+                            <button
+                              onClick={() => handleOpenEditFood(item)}
+                              className="p-2 rounded-xl bg-dark-800 hover:bg-gold-500/20 text-slate-300 hover:text-gold-400 border border-slate-700 transition-colors"
+                              title={t('admin.actionEdit')}
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </button>
 
-                        {/* Type */}
-                        <td className="py-3.5 px-4">
-                          <span
-                            className={`px-2.5 py-1 rounded-md text-[10px] font-bold border ${
-                              item.isVeg
-                                ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
-                                : 'bg-red-950/60 text-red-400 border-red-500/30'
-                            }`}
-                          >
-                            {item.isVeg ? 'VEG' : 'NON-VEG'}
-                          </span>
-                        </td>
-
-                        {/* Availability Toggle */}
-                        <td className="py-3.5 px-4">
-                          <button
-                            onClick={() => handleToggleAvailability(item._id, item.name)}
-                            className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border transition-all ${
-                              item.isAvailable
-                                ? 'bg-emerald-950/80 border-emerald-500/40 text-emerald-400 hover:bg-emerald-900/80'
-                                : 'bg-red-950/80 border-red-500/40 text-red-400 hover:bg-red-900/80'
-                            }`}
-                          >
-                            {item.isAvailable ? (
-                              <>
-                                <CheckCircle className="w-3 h-3" />
-                                Available
-                              </>
-                            ) : (
-                              <>
-                                <XCircle className="w-3 h-3" />
-                                Out of Stock
-                              </>
-                            )}
-                          </button>
-                        </td>
-
-                        {/* Edit / Delete Buttons */}
-                        <td className="py-3.5 px-6 text-right space-x-2">
-                          <button
-                            onClick={() => handleOpenEditFood(item)}
-                            className="p-2 rounded-xl bg-dark-800 hover:bg-gold-500/20 text-slate-300 hover:text-gold-400 border border-slate-700 transition-colors"
-                            title="Edit Food Product"
-                          >
-                            <Edit2 className="w-4 h-4" />
-                          </button>
-
-                          <button
-                            onClick={() => handleDeleteFood(item._id, item.name)}
-                            className="p-2 rounded-xl bg-dark-800 hover:bg-red-900/30 text-slate-300 hover:text-red-400 border border-slate-700 transition-colors"
-                            title="Delete Food Product"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
+                            <button
+                              onClick={() => handleDeleteFood(item._id, item.name)}
+                              className="p-2 rounded-xl bg-dark-800 hover:bg-red-900/30 text-slate-300 hover:text-red-400 border border-slate-700 transition-colors"
+                              title={t('admin.actionDelete')}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -394,13 +395,13 @@ export default function AdminDashboard() {
       {activeTab === 'categories' && (
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="font-serif text-xl font-bold text-white">Menu Categories</h3>
+            <h3 className="font-serif text-xl font-bold text-white">{t('admin.tabCategories')}</h3>
             <button
               onClick={() => setIsAddCategoryOpen(true)}
               className="flex items-center gap-2 px-5 py-2.5 rounded-xl gold-gradient-bg text-dark-950 font-bold text-xs shadow-gold-glow"
             >
               <Plus className="w-4 h-4" />
-              <span>Add Category</span>
+              <span>{t('admin.addNewCategory')}</span>
             </button>
           </div>
 
@@ -411,7 +412,7 @@ export default function AdminDashboard() {
                 className="p-5 rounded-2xl bg-dark-900 border border-slate-800 glass-panel flex items-center justify-between"
               >
                 <div>
-                  <h4 className="font-serif text-base font-bold text-white">{cat.name}</h4>
+                  <h4 className="font-serif text-base font-bold text-white">{tCategory(cat.name)}</h4>
                   <p className="text-xs text-slate-400 mt-1 font-light">
                     {cat.description || 'Category for menu organization'}
                   </p>
@@ -443,13 +444,13 @@ export default function AdminDashboard() {
             </button>
 
             <h2 className="font-serif text-2xl font-bold text-white mb-6">
-              {editingFood ? `Edit "${editingFood.name}"` : 'Add New Food Item'}
+              {editingFood ? t('addFood.editTitle') : t('addFood.modalTitle')}
             </h2>
 
             <form onSubmit={handleSaveFood} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-slate-400 font-semibold mb-1">Food Name *</label>
+                  <label className="block text-slate-400 font-semibold mb-1">{t('addFood.foodName')} *</label>
                   <input
                     type="text"
                     required
@@ -461,7 +462,7 @@ export default function AdminDashboard() {
                 </div>
 
                 <div>
-                  <label className="block text-slate-400 font-semibold mb-1">Category *</label>
+                  <label className="block text-slate-400 font-semibold mb-1">{t('addFood.category')} *</label>
                   <select
                     value={foodForm.category}
                     onChange={(e) => setFoodForm({ ...foodForm, category: e.target.value })}
@@ -469,7 +470,7 @@ export default function AdminDashboard() {
                   >
                     {categories.map((c) => (
                       <option key={c._id || c.name} value={c.name}>
-                        {c.name}
+                        {tCategory(c.name)}
                       </option>
                     ))}
                   </select>
@@ -478,7 +479,7 @@ export default function AdminDashboard() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-slate-400 font-semibold mb-1">Price (Rs.) *</label>
+                  <label className="block text-slate-400 font-semibold mb-1">{t('addFood.price')} *</label>
                   <input
                     type="number"
                     required
@@ -490,7 +491,7 @@ export default function AdminDashboard() {
                 </div>
 
                 <div>
-                  <label className="block text-slate-400 font-semibold mb-1">Prep Time</label>
+                  <label className="block text-slate-400 font-semibold mb-1">{t('addFood.prepTime')}</label>
                   <input
                     type="text"
                     placeholder="e.g. 15-20 mins"
@@ -502,7 +503,7 @@ export default function AdminDashboard() {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-semibold mb-1">Image URL * (Unsplash or Pexels)</label>
+                <label className="block text-slate-400 font-semibold mb-1">{t('addFood.imageUrl')} *</label>
                 <input
                   type="url"
                   required
@@ -511,24 +512,13 @@ export default function AdminDashboard() {
                   onChange={(e) => setFoodForm({ ...foodForm, imageUrl: e.target.value })}
                   className="w-full p-3 rounded-xl bg-dark-950 border border-slate-800 text-white focus:border-gold-500 focus:outline-none"
                 />
-                {foodForm.imageUrl && (
-                  <div className="mt-2 flex items-center gap-3 p-2 bg-dark-950 rounded-xl border border-slate-800">
-                    <img
-                      src={foodForm.imageUrl}
-                      alt="Preview"
-                      className="w-10 h-10 rounded-lg object-cover"
-                      onError={(e) => (e.target.style.display = 'none')}
-                    />
-                    <span className="text-[11px] text-emerald-400">Image URL Preview Loaded</span>
-                  </div>
-                )}
               </div>
 
               <div>
-                <label className="block text-slate-400 font-semibold mb-1">Description</label>
+                <label className="block text-slate-400 font-semibold mb-1">{t('addFood.description')}</label>
                 <textarea
                   rows={3}
-                  placeholder="Short description of ingredients and taste..."
+                  placeholder="Short description..."
                   value={foodForm.description}
                   onChange={(e) => setFoodForm({ ...foodForm, description: e.target.value })}
                   className="w-full p-3 rounded-xl bg-dark-950 border border-slate-800 text-white focus:border-gold-500 focus:outline-none"
@@ -544,7 +534,7 @@ export default function AdminDashboard() {
                     onChange={(e) => setFoodForm({ ...foodForm, isVeg: e.target.checked })}
                     className="w-4 h-4 rounded text-gold-500 focus:ring-gold-500"
                   />
-                  <span className="text-slate-300 font-medium">Vegetarian Dish</span>
+                  <span className="text-slate-300 font-medium">{t('addFood.isVeg')}</span>
                 </label>
 
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -554,7 +544,7 @@ export default function AdminDashboard() {
                     onChange={(e) => setFoodForm({ ...foodForm, isAvailable: e.target.checked })}
                     className="w-4 h-4 rounded text-gold-500 focus:ring-gold-500"
                   />
-                  <span className="text-slate-300 font-medium">Available in Stock</span>
+                  <span className="text-slate-300 font-medium">{t('addFood.isAvailable')}</span>
                 </label>
               </div>
 
@@ -567,14 +557,14 @@ export default function AdminDashboard() {
                   }}
                   className="px-5 py-2.5 rounded-xl bg-dark-800 text-slate-300 font-semibold"
                 >
-                  Cancel
+                  {t('addFood.cancel')}
                 </button>
 
                 <button
                   type="submit"
                   className="px-6 py-2.5 rounded-xl gold-gradient-bg text-dark-950 font-bold shadow-gold-glow"
                 >
-                  {editingFood ? 'Save Changes' : 'Create Food Product'}
+                  {editingFood ? t('addFood.submitUpdate') : t('addFood.submitAdd')}
                 </button>
               </div>
             </form>
@@ -593,7 +583,7 @@ export default function AdminDashboard() {
               <X className="w-5 h-5" />
             </button>
 
-            <h2 className="font-serif text-xl font-bold text-white mb-4">Add New Category</h2>
+            <h2 className="font-serif text-xl font-bold text-white mb-4">{t('admin.addNewCategory')}</h2>
 
             <form onSubmit={handleSaveCategory} className="space-y-4 text-xs">
               <div>
@@ -625,13 +615,13 @@ export default function AdminDashboard() {
                   onClick={() => setIsAddCategoryOpen(false)}
                   className="px-5 py-2.5 rounded-xl bg-dark-800 text-slate-300 font-semibold"
                 >
-                  Cancel
+                  {t('addFood.cancel')}
                 </button>
                 <button
                   type="submit"
                   className="px-6 py-2.5 rounded-xl gold-gradient-bg text-dark-950 font-bold shadow-gold-glow"
                 >
-                  Create Category
+                  {t('admin.addNewCategory')}
                 </button>
               </div>
             </form>

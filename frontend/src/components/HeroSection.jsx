@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Utensils, ArrowRight, Star, Flame, Shield, Phone, MessageCircle } from 'lucide-react';
+import { Sparkles, Utensils, Star, Flame, Shield, Phone, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -57,7 +57,7 @@ export default function HeroSection({ onExploreClick }) {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-dark-800/90 border border-gold-600/30 text-gold-400 text-xs sm:text-sm font-medium tracking-wide mb-6 shadow-gold-glow"
             >
               <Sparkles className="w-4 h-4 text-gold-400 animate-spin-slow" />
-              <span>{t('badge')}</span>
+              <span>{t('hero.badge')}</span>
             </motion.div>
 
             {/* Restaurant Title */}
@@ -67,7 +67,7 @@ export default function HeroSection({ onExploreClick }) {
               transition={{ delay: 0.3 }}
               className="font-serif text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none"
             >
-              {t('heroTitlePrefix')} <span className="gold-gradient-text">{t('heroTitleSuffix')}</span>
+              {t('hero.titlePrefix')} <span className="gold-gradient-text">{t('hero.titleSuffix')}</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -77,7 +77,7 @@ export default function HeroSection({ onExploreClick }) {
               transition={{ delay: 0.4 }}
               className="mt-4 text-lg sm:text-2xl font-medium tracking-wider text-gold-300/90 font-serif"
             >
-              {t('heroSubtitle')}
+              {t('hero.subtitle')}
             </motion.p>
 
             <motion.p
@@ -86,7 +86,7 @@ export default function HeroSection({ onExploreClick }) {
               transition={{ delay: 0.5 }}
               className="mt-4 text-sm sm:text-base text-slate-300 max-w-xl font-light leading-relaxed"
             >
-              {t('heroDesc')}
+              {t('hero.description')}
             </motion.p>
 
             {/* Action Buttons: View Menu, WhatsApp Order, Call Button */}
@@ -101,7 +101,7 @@ export default function HeroSection({ onExploreClick }) {
                 className="px-8 py-4 rounded-full gold-gradient-bg text-dark-950 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-3 shadow-gold-glow hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 <Utensils className="w-5 h-5" />
-                <span>{t('viewMenu')}</span>
+                <span>{t('hero.viewMenu')}</span>
               </Link>
 
               <a
@@ -111,7 +111,7 @@ export default function HeroSection({ onExploreClick }) {
                 className="px-6 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 shadow-2xl hover:scale-105 transition-all border border-emerald-400/40"
               >
                 <MessageCircle className="w-5 h-5 fill-white text-white" />
-                <span>{t('orderWhatsApp')}</span>
+                <span>{t('nav.orderWhatsApp')}</span>
               </a>
 
               <a
@@ -134,17 +134,17 @@ export default function HeroSection({ onExploreClick }) {
                 <span className="font-serif text-2xl font-bold text-white flex items-center gap-1">
                   4.9 <Star className="w-4 h-4 fill-gold-400 text-gold-400 inline" />
                 </span>
-                <span className="text-xs text-slate-400 mt-0.5">{t('topRated')}</span>
+                <span className="text-xs text-slate-400 mt-0.5">{t('hero.topRated')}</span>
               </div>
               <div className="flex flex-col items-center lg:items-start">
                 <span className="font-serif text-2xl font-bold text-gold-400">50+</span>
-                <span className="text-xs text-slate-400 mt-0.5">{t('freshDishes')}</span>
+                <span className="text-xs text-slate-400 mt-0.5">{t('hero.freshDishes')}</span>
               </div>
               <div className="flex flex-col items-center lg:items-start">
                 <span className="font-serif text-2xl font-bold text-white flex items-center gap-1">
                   100% <Shield className="w-4 h-4 text-emerald-400 inline" />
                 </span>
-                <span className="text-xs text-slate-400 mt-0.5">{t('freshQuality')}</span>
+                <span className="text-xs text-slate-400 mt-0.5">{t('hero.freshQuality')}</span>
               </div>
             </motion.div>
           </motion.div>
@@ -172,12 +172,12 @@ export default function HeroSection({ onExploreClick }) {
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-panel border border-gold-500/30">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-bold tracking-widest text-gold-400 uppercase">Chef Signature</span>
-                    <h3 className="font-serif text-lg font-bold text-white">Chicken Dum Biriyani</h3>
+                    <span className="text-[10px] font-bold tracking-widest text-gold-400 uppercase">{t('hero.chefSignature')}</span>
+                    <h3 className="font-serif text-lg font-bold text-white">{t('hero.biryaniTitle')}</h3>
                     <p className="text-xs text-slate-300 mt-0.5">Rs. 1,450</p>
                   </div>
                   <span className="px-3 py-1 rounded-full bg-crimson-800/80 text-gold-300 text-xs font-bold border border-gold-500/40">
-                    🔥 Hot Item
+                    {t('hero.hotItem')}
                   </span>
                 </div>
               </div>
@@ -195,8 +195,8 @@ export default function HeroSection({ onExploreClick }) {
                 className="w-12 h-12 rounded-xl object-cover"
               />
               <div>
-                <h4 className="text-xs font-bold text-white font-serif">Sizzling Kottu</h4>
-                <p className="text-[11px] text-gold-400 font-semibold">From Rs. 800</p>
+                <h4 className="text-xs font-bold text-white font-serif">{t('hero.sizzlingKottu')}</h4>
+                <p className="text-[11px] text-gold-400 font-semibold">{t('hero.kottuFromPrice')}</p>
               </div>
             </motion.div>
 
@@ -210,8 +210,8 @@ export default function HeroSection({ onExploreClick }) {
                 <Flame className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white font-serif">Fresh & Hot Tea</h4>
-                <p className="text-[11px] text-slate-300">Pure Ceylon Brew</p>
+                <h4 className="text-xs font-bold text-white font-serif">{t('hero.freshHotTea')}</h4>
+                <p className="text-[11px] text-slate-300">{t('hero.pureCeylonBrew')}</p>
               </div>
             </motion.div>
 

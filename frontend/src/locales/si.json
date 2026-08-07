@@ -1,0 +1,498 @@
+{
+  "nav": {
+    "brandName": "පර්ල් හෝටලය",
+    "locationSub": "නාවට්කුලි, යාපනය",
+    "topAddress": "අංක: 82, A9 පාර, නාවට්කුලි හන්දිය, කයිතඩි, යාපනය",
+    "openHours": "දිනපතා: පෙ.ව. 6:00 – ප.ව. 10:30",
+    "callUs": "ඇමතුම්: +94 77 123 4567",
+    "home": "මුල් පිටුව",
+    "menu": "ආහාර මෙනුව",
+    "adminLogin": "පරිපාලක පද්ධතිය",
+    "getDirections": "ස්ථානය සහ සිතියම",
+    "orderWhatsApp": "WhatsApp මගින් ඇණවුම් කරන්න",
+    "quickCall": "දැන් අමතන්න"
+  },
+  "hero": {
+    "badge": "ප්‍රණීත ලංකා සහ යාපනය ආහාර සංස්කෘතිය",
+    "titlePrefix": "පර්ල්",
+    "titleSuffix": "හෝටලය",
+    "subtitle": "නැවුම් ආහාර • ඉහළම රසය • උසස් ප්‍රමිතිය",
+    "description": "උණු උණු කොත්තු, රසවත් බිරියානි, ආප්ප සහ නැවුම් ලංකා තේ රස විඳින්න.",
+    "viewMenu": "මෙනුව බලන්න",
+    "exploreFoods": "ආහාර සොයන්න",
+    "topRated": "ඉහළම ඇගයීම",
+    "freshDishes": "ආහාර 50+",
+    "freshQuality": "100% නැවුම්",
+    "chefSignature": "ප්‍රධාන සූපවේදී විශේෂය",
+    "biryaniTitle": "චිකන් ඩම් බිරියානි",
+    "hotItem": "🔥 ජනප්‍රිය ආහාරය",
+    "sizzlingKottu": "උණු උණු කොත්තු",
+    "kottuFromPrice": "රු. 800 සිට",
+    "freshHotTea": "උණුසුම් තේ",
+    "pureCeylonBrew": "නැවුම් ලංකා තේ"
+  },
+  "storefront": {
+    "ourLocation": "අපගේ ආපනශාලාව",
+    "title": "පර්ල් හෝටලයට පැමිණෙන්න",
+    "description": "A9 මාර්ගයේ නාවට්කුලි හන්දිය අසල පිහිටා ඇත. උණුසුම් කොත්තු, ආප්ප සහ තේ රස විඳින්න පැමිණෙන්න.",
+    "liveFrontTag": "ආපනශාලා පරිශ්‍රය",
+    "branchTitle": "පර්ල් හෝටලය - A9 මාර්ග ශාඛාව",
+    "junctionSub": "නාවට්කුලි හන්දිය, කයිතඩි, යාපනය",
+    "addressLabel": "ලිපිනය:",
+    "fullAddress": "අංක: 82, A9 පාර, නාවට්කුලි හන්දිය, කයිතඩි, යාපනය, ශ්‍රී ලංකාව",
+    "phoneLabel": "දුරකථන:",
+    "phoneNumbers": "+94 77 123 4567 / +94 21 222 3456",
+    "hoursLabel": "වේලාවන්:",
+    "hoursDetail": "සතියේ දින 7ම: පෙ.ව. 6:00 – ප.ව. 10:30 (උණුසුම් කොත්තු සහ තේ ලබා ගත හැක)",
+    "openDirectionsMaps": "Google Maps මගින් මාර්ගය බලන්න"
+  },
+  "search": {
+    "menuBadge": "පර්ල් හෝටලය යාපනය",
+    "ourMenuTitle": "අපගේ",
+    "ourMenuHighlight": "ආහාර මෙනුව",
+    "menuDesc": "වර්ගීකරණය කරන ලද ආහාර වර්ග නරඹන්න. පහසුවෙන් ඇණවුම් කරන්න.",
+    "placeholder": "ආහාර නම සොයන්න...",
+    "all": "සියල්ල",
+    "vegOnly": "එළවළු පමණි",
+    "nonVegOnly": "මස්/මාළු පමණි",
+    "resultsFound": "ආහාර වර්ග ඇත",
+    "noFoodsFound": "ආහාර සොයා ගැනීමට නොහැකි විය",
+    "resetFilters": "නැවත සකසන්න",
+    "sortByLabel": "වර්ග කරන්න:",
+    "sortDefault": "සාමාන්‍ය වර්ගීකරණය",
+    "sortPriceLow": "මිල: අඩු සිට වැඩි",
+    "sortPriceHigh": "මිල: වැඩි සිට අඩු",
+    "sortRating": "ඉහළම ඇගයීම"
+  },
+  "categories": {
+    "All": "සියලුම වර්ග",
+    "Breakfast & Snacks": "උදෑසන ආහාර සහ කෙටි කෑම",
+    "Tea & Beverages": "තේ සහ බීම වර්ග",
+    "Curries": "කරි වර්ග",
+    "Meals": "බත් සහ ව්‍යංජන",
+    "Specials & Devils": "විශේෂ ඩෙවිල් කෑම",
+    "Biryani": "බිරියානි",
+    "Rice Table": "ෆ්‍රයිඩ් රයිස්",
+    "Kottu Table": "කොත්තු වර්ග"
+  },
+  "food": {
+    "veg": "එළවළු",
+    "nonVeg": "මාළු/මස්",
+    "available": "දැනට ඇත",
+    "outOfStock": "අවසන් වී ඇත",
+    "prepTime": "කාලය:",
+    "priceLabel": "මිල",
+    "viewDetails": "විස්තර බලන්න",
+    "orderNow": "ඇණවුම් කරන්න",
+    "close": "වසා දමන්න",
+    "qualityShield": "පර්ල් හෝටලයේ උසස් සෞඛ්‍ය ප්‍රමිතීන්ට අනුකූලව සකස් කර ඇත.",
+    "whatsappOrderMessage": "ආයුබෝවන් පර්ල් හෝටලය! මට මෙම ආහාරය ඇණවුම් කිරීමට අවශ්‍යයි:"
+  },
+  "foodItems": {
+    "Plain Tea": {
+      "name": "ප්ලේන් ටී",
+      "description": "නැවුම් ලංකා කළු තේ උණුසුම්ව ලබා දේ."
+    },
+    "Milk Tea": {
+      "name": "කිරි තේ",
+      "description": "නැවුම් එළකිරි එකතු කළ ප්‍රණීත කිරි තේ."
+    },
+    "Ginger Ceylon Tea": {
+      "name": "ඉඟුරු තේ",
+      "description": "අලුත් ඉඟුරු එකතු කළ උණුසුම් තේ."
+    },
+    "Cardamom Special Tea": {
+      "name": "කරාබුනැටි තේ",
+      "description": "සුවඳවත් කරාබුනැටි එකතු කළ විශේෂ තේ."
+    },
+    "Light Tea": {
+      "name": "ලයිට් ටී",
+      "description": "සැහැල්ලු රසවත් කළු තේ."
+    },
+    "Nestomalt": {
+      "name": "නෙස්ටොමෝල්ට්",
+      "description": "පෝෂණීය උණුසුම් නෙස්ටොමෝල්ට් බීම."
+    },
+    "Nescafe": {
+      "name": "නෙස්කැෆේ කෝපි",
+      "description": "ප්‍රණීත උණුසුම් කිරි කෝපි."
+    },
+    "Fresh Lime Juice": {
+      "name": "දෙහි බීම",
+      "description": "නැවුම් දෙහි සහ මිංචි එකතු කළ සිසිල් බීම."
+    },
+    "Passion Fruit Juice": {
+      "name": "පැෂන් ෆෲට් බීම",
+      "description": "නැවුම් පැෂන් ෆෲට් සිසිල් බීම."
+    },
+    "Iced Milo": {
+      "name": "අයිස් මයිලෝ",
+      "description": "සිසිල් මයිලෝ චොක්ලට් බීම."
+    },
+    "Fresh King Coconut (Thambili)": {
+      "name": "තැඹිලි",
+      "description": "නැවුම් ස්වාභාවික මිහිරි තැඹිලි වතුර."
+    },
+    "Plain Appam": {
+      "name": "ප්ලේන් ආප්ප",
+      "description": "පොල්කිරි යොදා සෑදූ ප්‍රණීත ආප්ප."
+    },
+    "Paal Appam": {
+      "name": "කිරි ආප්ප",
+      "description": "මිහිරි පොල්කිරි පිරවූ ආප්ප."
+    },
+    "Egg Appam": {
+      "name": "බිත්තර ආප්ප",
+      "description": "මැදට බිත්තරයක් එකතු කළ ආප්ප."
+    },
+    "String Hopper": {
+      "name": "ඉඳිආප්ප (10)",
+      "description": "පොල් සම්බෝල සහ පරිප්පු හොදි සමඟ ඉඳිආප්ප."
+    },
+    "Puttu": {
+      "name": "පිට්ටු",
+      "description": "හාල් පිටි සහ පොල් එකතු කර තැම්බූ පිට්ටු."
+    },
+    "Dosai": {
+      "name": "තෝසේ",
+      "description": "තෝසේ, සාම්බාර් සහ පොල් චට්නි සමඟ."
+    },
+    "Parotta": {
+      "name": "පරාටා",
+      "description": "රන්වන් පැහැති රසවත් පරාටා."
+    },
+    "Roli / Roll": {
+      "name": "රෝල්ස්",
+      "description": "ප්‍රණීත රෝල්ස්."
+    },
+    "Veg Roll": {
+      "name": "එළවළු රෝල්ස්",
+      "description": "එළවළු පිරවූ ප්‍රණීත රෝල්ස්."
+    },
+    "Egg Roll": {
+      "name": "බිත්තර රෝල්ස්",
+      "description": "තැම්බූ බිත්තර සහ අල පිරවූ රසවත් රෝල්ස්."
+    },
+    "Samosa": {
+      "name": "සමෝසා",
+      "description": "රසවත් අල පිරවූ රන්වන් සමෝසා."
+    },
+    "Vadai": {
+      "name": "වඩේ",
+      "description": "සාම්ප්‍රදායික පපඩම් සහ පරිප්පු වඩේ."
+    },
+    "Methu Vadi / Ulundu Vadai": {
+      "name": "උළුඳු වඩේ",
+      "description": "සුවඳවත් උළුඳු වඩේ."
+    },
+    "Vayppan": {
+      "name": "කෙසෙල් බැදුම / වායිප්පන්",
+      "description": "සාම්ප්‍රදායික කෙසෙල් පැණි රස කෑම."
+    },
+    "Chicken Curry": {
+      "name": "චිකන් කරි",
+      "description": "යාපනයේ තුනපහ එකතු කළ ප්‍රණීත චිකන් කරිය."
+    },
+    "Beef Curry": {
+      "name": "බීෆ් කරි",
+      "description": "සැර රසවත් බීෆ් කරිය."
+    },
+    "Mutton Curry": {
+      "name": "මට්න් කරි",
+      "description": "මැටි වළඳේ පිසූ එළුමස් කරිය."
+    },
+    "Fish Curry": {
+      "name": "මාළු කරි",
+      "description": "නැවුම් මුහුදු මාළු කරිය."
+    },
+    "Fish Fry": {
+      "name": "තෙල් දැමූ මාළු",
+      "description": "මිරිස් තවරා තෙල් දැමූ මාළු."
+    },
+    "Veg Meal": {
+      "name": "එළවළු බත් පත",
+      "description": "පරිප්පු, එළවළු මාළුවලින් සමන්විත එළවළු බත් පත."
+    },
+    "Fish Meal": {
+      "name": "මාළු බත් පත",
+      "description": "මාළු කරි සහ එළවළු සහිත බත් පත."
+    },
+    "Egg Meal": {
+      "name": "බිත්තර බත් පත",
+      "description": "බිත්තර හොදි සහ එළවළු සහිත බත් පත."
+    },
+    "Chicken Meal": {
+      "name": "චිකන් බත් පත",
+      "description": "චිකන් කරි සහ එළවළු මාළු 4ක් සහිත බත් පත."
+    },
+    "Beef Meal": {
+      "name": "බීෆ් බත් පත",
+      "description": "බීෆ් කරිය සහිත ප්‍රණීත බත් පත."
+    },
+    "Mulisa Meal (Mutton Special Meal)": {
+      "name": "මුලිසා මට්න් විශේෂ බත් පත",
+      "description": "කෙසෙල් කොළයේ පිළිගන්වන විශේෂ එළුමස් බත් පත."
+    },
+    "Omelette": {
+      "name": "ඔම්ලට්",
+      "description": "ලූණු, අමුමිරිස් එකතු කළ බිත්තර ඔම්ලට්."
+    },
+    "Chicken Devil": {
+      "name": "චිකන් ඩෙවිල්",
+      "description": "රසවත් චිකන් ඩෙවිල්."
+    },
+    "Prawn Devil": {
+      "name": "ඉස්සන් ඩෙවිල්",
+      "description": "සැර රසවත් ඉස්සන් ඩෙවිල්."
+    },
+    "Squid Devil": {
+      "name": "දැල්ලන් ඩෙවිල්",
+      "description": "දැල්ලන් එකතු කළ ඩෙවිල්."
+    },
+    "Beef Devil": {
+      "name": "බීෆ් ඩෙවිල්",
+      "description": "බීෆ් එකතු කළ ඩෙවිල්."
+    },
+    "Egg Biryani": {
+      "name": "බිත්තර බිරියානි",
+      "description": "බිත්තර එකතු කළ බිරියානි."
+    },
+    "Chicken Biryani": {
+      "name": "චිකන් බිරියානි",
+      "description": "ප්‍රණීත චිකන් බිරියානි."
+    },
+    "Chicken Dum Biryani": {
+      "name": "චිකන් ඩම් බිරියානි",
+      "description": "රසවත් චිකන් ඩම් බිරියානි."
+    },
+    "Beef Biryani": {
+      "name": "බීෆ් බිරියානි",
+      "description": "බීෆ් එකතු කළ රසවත් බිරියානි."
+    },
+    "Mutton Biryani": {
+      "name": "මට්න් බිරියානි",
+      "description": "ප්‍රණීත මට්න් බිරියානි."
+    },
+    "Mutton Dum Biryani": {
+      "name": "මට්න් ඩම් බිරියානි",
+      "description": "ප්‍රණීත එළුමස් ඩම් බිරියානි."
+    },
+    "Veg Rice (Full Portion)": {
+      "name": "එළවළු ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ)",
+      "description": "එළවළු එකතු කළ ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Veg Rice (Half Portion)": {
+      "name": "එළවළු ෆ්‍රයිඩ් රයිස් (අර්ධ)",
+      "description": "එළවළු එකතු කළ ෆ්‍රයිඩ් රයිස් (අර්ධ ප්‍රමාණය)."
+    },
+    "Egg Rice (Full Portion)": {
+      "name": "බිත්තර ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ)",
+      "description": "බිත්තර එකතු කළ ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Chicken Rice (Full Portion)": {
+      "name": "චිකන් ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ)",
+      "description": "චිකන් එකතු කළ ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Beef Rice (Full Portion)": {
+      "name": "බීෆ් ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ)",
+      "description": "බීෆ් එකතු කළ ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Prawn Rice (Full Portion)": {
+      "name": "ඉස්සන් ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ)",
+      "description": "ඉස්සන් එකතු කළ ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Squid Rice (Full Portion)": {
+      "name": "දැල්ලන් ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ)",
+      "description": "දැල්ලන් එකතු කළ ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Mix Rice (Full Portion)": {
+      "name": "මික්ස් ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ)",
+      "description": "චිකන්, බීෆ් සහ ඉස්සන් එකතු කළ ෆ්‍රයිඩ් රයිස් (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Veg Kottu (Full Portion)": {
+      "name": "එළවළු කොත්තු (සම්පූර්ණ)",
+      "description": "එළවළු එකතු කළ ප්‍රණීත කොත්තු (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Egg Kottu (Full Portion)": {
+      "name": "බිත්තර කොත්තු (සම්පූර්ණ)",
+      "description": "බිත්තර එකතු කළ රසවත් කොත්තු (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Chicken Kottu (Full Portion)": {
+      "name": "චිකන් කොත්තු (සම්පූර්ණ)",
+      "description": "චිකන් සහ බිත්තර පිරවූ සම්පූර්ණ කොත්තු."
+    },
+    "Chicken Kottu (Half)": {
+      "name": "චිකන් කොත්තු (අර්ධ)",
+      "description": "ප්‍රණීත චිකන් කොත්තු (අර්ධ ප්‍රමාණය)."
+    },
+    "Chicken Kottu (Full)": {
+      "name": "චිකන් කොත්තු (සම්පූර්ණ)",
+      "description": "චිකන් සහ බිත්තර පිරවූ සම්පූර්ණ කොත්තු."
+    },
+    "Beef Kottu (Full Portion)": {
+      "name": "බීෆ් කොත්තු (සම්පූර්ණ)",
+      "description": "බීෆ් එකතු කළ ප්‍රණීත කොත්තු (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Prawn Kottu (Full Portion)": {
+      "name": "ඉස්සන් කොත්තු (සම්පූර්ණ)",
+      "description": "ඉස්සන් එකතු කළ සීෆුඩ් කොත්තු (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Squid Kottu (Full Portion)": {
+      "name": "දැල්ලන් කොත්තු (සම්පූර්ණ)",
+      "description": "දැල්ලන් එකතු කළ සීෆුඩ් කොත්තු (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Mix Kottu (Full Portion)": {
+      "name": "මික්ස් කොත්තු (සම්පූර්ණ)",
+      "description": "චිකන්, බීෆ් සහ ඉස්සන් එකතු කළ විශේෂ කොත්තු (සම්පූර්ණ ප්‍රමාණය)."
+    },
+    "Seafood Mix Kottu": {
+      "name": "සීෆුඩ් මික්ස් කොත්තු",
+      "description": "ඉස්සන් සහ දැල්ලන් එකතු කළ සීෆුඩ් කොත්තු."
+    }
+  },
+  "reviews": {
+    "badge": "පාරිභෝගික අදහස්",
+    "title": "අපගේ පාරිභෝගිකයින් පවසන දේ",
+    "subtitle": "පර්ල් හෝටලයේ ආහාර රසවිඳි පාරිභෝගිකයින්ගේ අදහස්.",
+    "avgRating": "4.9 / 5",
+    "basedOn": "850+ පාරිභෝගික ඇගයීම් මත",
+    "writeReview": "අදහසක් එක් කරන්න",
+    "addReviewTitle": "ඔබගේ අත්දැකීම බෙදාගන්න",
+    "addReviewSubtitle": "ඔබගේ අදහස් අපගේ සේවාව උසස් කිරීමට උපකාරී වේ.",
+    "yourName": "ඔබගේ නම",
+    "yourNamePlaceholder": "උදා: කසුන්",
+    "yourReview": "ඔබගේ අදහස",
+    "reviewPlaceholder": "අපගේ ආහාර සහ සේවාව පිළිබඳ අදහස ලියන්න...",
+    "ratingLabel": "ඇගයීම (තරු 1-5)",
+    "dishOrdered": "ඇණවුම් කළ ආහාරය (අවශ්‍ය නම්)",
+    "dishPlaceholder": "උදා: චිකන් කොත්තු, කිරි තේ...",
+    "submitReview": "යොමු කරන්න",
+    "cancel": "අවලංගු කරන්න",
+    "reviewSubmitted": "ස්තුතියි! ඔබගේ අදහස සටහන් විය.",
+    "verifiedCustomer": "තහවුරු කළ පාරිභෝගිකයෙකි",
+    "verifiedDiner": "තහවුරු කළ පාරිභෝගිකයෙකි",
+    "justNow": "දැන්ම",
+    "defaultDish": "පර්ල් හෝටල් ආහාරය",
+    "item1": {
+      "location": "යාපනය නගරය",
+      "date": "දින 2කට පෙර",
+      "comment": "යාපනයේ හොඳම චිකන් කොත්තු! උණු උණු හොදි සමඟ නැවුම් කොත්තු. ලංකා කිරි තේ එකත් ඉතා රසවත්!",
+      "dish": "චිකන් කොත්තු සහ ලංකා කිරි තේ"
+    },
+    "item2": {
+      "location": "නල්ලූර්",
+      "date": "සතියකට පෙර",
+      "comment": "චිකන් ඩම් බිරියානි සහ කිරි ආප්ප ඇණවුම් කළා. WhatsApp මගින් උණුසුම්ව ලැබුණා. ඉතා ප්‍රණීත රසයක්.",
+      "dish": "චිකන් ඩම් බිරියානි"
+    },
+    "item3": {
+      "location": "කොළඹ (සංචාරක)",
+      "date": "සති 2කට පෙර",
+      "comment": "A9 පාරේ යද්දී නාවට්කුලි හන්දියේ පර්ල් හෝටලයට ගියා. ප්‍රණීත ඉස්සන් ඩෙවිල් සහ නැවුම් තැඹිලි! අනිවාර්යයෙන්ම යා යුතු තැනක්.",
+      "dish": "ඉස්සන් ඩෙවිල් සහ තැඹිලි"
+    },
+    "item4": {
+      "location": "කයිතඩි",
+      "date": "සති 3කට පෙර",
+      "comment": "උදෑසන ආහාරයට පොල් සම්බෝල සමඟ බිත්තර ආප්ප ඉතා රසවත්. ඉක්මන් සේවාව සහ පිරිසිදු පරිසරය. කරාබුනැටි තේ එක ඉතා සුවඳයි!",
+      "dish": "බිත්තර ආප්ප සහ කරාබුනැටි තේ"
+    }
+  },
+  "banner": {
+    "masterChefsTitle": "විශේෂඥ සූපවේදීන්",
+    "masterChefsDesc": "සියලුම කොත්තු සහ බිරියානි සාම්ප්‍රදායික යාපනයේ ක්‍රමයට සකස් කෙරේ.",
+    "freshDailyTitle": "100% නැවුම් ද්‍රව්‍ය",
+    "freshDailyDesc": "දිනපතා නැවුම් එළවළු, මාළු සහ මස් ලබා ගනු ලැබේ.",
+    "fineDiningTitle": "උසස් ආපනශාලා අත්දැකීම",
+    "fineDiningDesc": "වර්ගීකරණය කළ මෙනුවෙන් පහසුවෙන් WhatsApp මගින් ඇණවුම් කරන්න."
+  },
+  "quickOrder": {
+    "title": "WhatsApp ඉක්මන් ඇණවුම",
+    "subtitle": "තොරතුරු තහවුරු කර කෙළින්ම WhatsApp මගින් යවන්න.",
+    "itemLabel": "තෝරාගත් ආහාරය:",
+    "portionQuantity": "ප්‍රමාණය / ප්‍රමාණයන්:",
+    "customerName": "ඔබගේ නම:",
+    "namePlaceholder": "සම්පූර්ණ නම ඇතුළත් කරන්න",
+    "phone": "දුරකථන අංකය:",
+    "phonePlaceholder": "දුරකථන අංකය ඇතුළත් කරන්න",
+    "deliveryAddress": "ලිපිනය / මේස අංකය:",
+    "addressPlaceholder": "බෙදාහැරීමේ ලිපිනය හෝ මේස අංකය",
+    "notes": "විශේෂ සටහන්:",
+    "notesPlaceholder": "උදා: සැර වැඩියෙන්, සීනි අඩුවෙන්...",
+    "sendOrderBtn": "WhatsApp මගින් යවන්න",
+    "cancelBtn": "අවලංගු කරන්න"
+  },
+  "addFood": {
+    "modalTitle": "+ නව ආහාරයක් එකතු කරන්න",
+    "editTitle": "ආහාර විස්තර වෙනස් කරන්න",
+    "subtitle": "පර්ල් හෝටල් මෙනුවට එකතු කිරීමට විස්තර ඇතුළත් කරන්න.",
+    "foodName": "ආහාරයේ නම",
+    "category": "වර්ගය",
+    "price": "මිල (රු.)",
+    "prepTime": "සූදානම් වීමේ කාලය",
+    "isVeg": "එළවළු ආහාරයක්ද",
+    "isAvailable": "දැනට තිබේද",
+    "imageUrl": "ඡායාරූප සබැඳිය (Image URL)",
+    "description": "ආහාර විස්තරය",
+    "submitAdd": "ආහාරය එකතු කරන්න",
+    "submitUpdate": "තොරතුරු සුරකින්න",
+    "cancel": "අවලංගු කරන්න",
+    "addSuccess": "ආහාරය සාර්ථකව එකතු කරන ලදී!",
+    "updateSuccess": "ආහාර විස්තර යාවත්කාලීන කරන ලදී!"
+  },
+  "admin": {
+    "portalTitle": "පර්ල් හෝටලය පරිපාලක පද්ධතිය",
+    "logout": "නික්මෙන්න",
+    "authTitle": "පරිපාලක පිවිසුම",
+    "authSubtitle": "ආහාර මෙනුව සංස්කරණය කිරීමට මුරපදය ඇතුළත් කරන්න",
+    "passcodeLabel": "පරිපාලක මුරපදය",
+    "passcodePlaceholder": "මුරපදය ඇතුළත් කරන්න",
+    "loginBtn": "ඇතුළු වන්න",
+    "invalidPasscode": "වැරදි මුරපදයකි!",
+    "adminSuccess": "සාදරයෙන් පිළිගනිමු",
+    "dashboardTitle": "ආහාර සහ වර්ග කළමනාකරණය",
+    "tabFoods": "ආහාර ද්‍රව්‍ය",
+    "tabCategories": "වර්ග",
+    "totalFoods": "මුළු ආහාර",
+    "availableCount": "දැනට ඇති ආහාර",
+    "categoriesCount": "වර්ග ගණන",
+    "topRatedCount": "ඉහළම ඇගයීම්",
+    "addNewFood": "+ ආහාරයක් එක් කරන්න",
+    "addNewCategory": "+ වර්ගයක් එක් කරන්න",
+    "tableImage": "ඡායාරූපය",
+    "tableName": "නම",
+    "tableCategory": "වර්ගය",
+    "tablePrice": "මිල",
+    "tableVeg": "එළවළු/මස්",
+    "tableStatus": "තත්ත්වය",
+    "tableActions": "ක්‍රියාමාර්ග",
+    "actionEdit": "සංස්කරණය",
+    "actionDelete": "මකා දමන්න",
+    "actionToggle": "තත්ත්වය වෙනස් කරන්න",
+    "deleteConfirmTitle": "ආහාරය මකා දමන්නද?",
+    "deleteConfirmDesc": "ඔබට මෙම ආහාරය මෙනුවෙන් මකා දැමීමට අවශ්‍ය බව විශ්වාසද?",
+    "confirmDeleteBtn": "ඔව්, මකා දමන්න",
+    "deleteSuccess": "ආහාරය සාර්ථකව මකා දමන ලදී!"
+  },
+  "footer": {
+    "tagline": "නැවුම් ආහාර • ඉහළම රසය • උසස් ප්‍රමිතිය",
+    "description": "යාපනයේ ප්‍රමුඛතම ආපනශාලාව. රසවත් කොත්තු, බිරියානි, තේ සහ විශේෂ ආහාර.",
+    "quickLinks": "ඉක්මන් සබැඳි",
+    "topSpecialties": "විශේෂ කෑම වර්ග",
+    "specialtyKottu": "උණු උණු චිකන් සහ සීෆුඩ් කොත්තු",
+    "specialtyBiryani": "ඩම් බිරියානි සහ විශේෂ ප්‍රණීත රයිස්",
+    "specialtyAppam": "ප්‍රණීත බිත්තර සහ කිරි ආප්ප",
+    "specialtyDevils": "සැර ඉස්සන්, දැල්ලන් සහ චිකන් ඩෙවිල්",
+    "specialtyTeas": "ලංකා කළු තේ, කිරි තේ සහ ඉඟුරු තේ",
+    "visitContact": "සම්බන්ධ වන්න",
+    "rights": "සියලුම හිමිකම් ඇවිරිණි. පර්ල් හෝටලය.",
+    "designedBy": "PIRA AI AURA කණ්ඩායම විසින් නිර්මාණය කරන ලදී",
+    "creativeTagline": "Creative • Intelligent • Impactful",
+    "craftedWith": "ප්‍රණීත ලංකා ආහාර රසවිඳින්නන් උදෙසා"
+  },
+  "notFound": {
+    "title": "404 - පිටුව හමුවූයේ නැත",
+    "desc": "ඔබ සොයන පිටුව පවතින්නේ නැත නැතහොත් වෙනස් කර ඇත.",
+    "backHome": "මුල් පිටුවට යන්න"
+  }
+}

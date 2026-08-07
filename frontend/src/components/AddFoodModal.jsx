@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Camera, Leaf, Drumstick } from 'lucide-react';
 import { createFood, getCategories } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 import toast from 'react-hot-toast';
 
 export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
+  const { t, tCategory } = useLanguage();
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const fileInputRef = useRef(null);
@@ -42,7 +44,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
 
   if (!isOpen) return null;
 
-  // High-performance image compressor for camera photos (Max 800px, 75% quality)
+  // High-performance image compressor for camera photos
   const compressImage = (file, callback) => {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -78,7 +80,6 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
     reader.readAsDataURL(file);
   };
 
-  // Handle File / Camera Photo Upload with Instant Compression
   const handleImageFileChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -91,7 +92,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
     compressImage(file, (compressedBase64) => {
       setImagePreview(compressedBase64);
       setFormData((prev) => ({ ...prev, imageUrl: compressedBase64 }));
-      toast.success('Photo ready & compressed for speed!');
+      toast.success('Photo ready & compressed!');
     });
   };
 
@@ -115,7 +116,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
 
       const res = await createFood(payload);
       if (res.success) {
-        toast.success(`Added "${formData.name}" to Pearl Hotel menu!`, {
+        toast.success(t('addFood.addSuccess'), {
           icon: '👑',
           style: {
             background: '#09090b',
@@ -169,8 +170,8 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
               <Plus className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="font-serif text-2xl font-bold text-white">Add Food Product</h2>
-              <p className="text-xs text-slate-400">Add a new dish to Pearl Hotel Jaffna menu</p>
+              <h2 className="font-serif text-2xl font-bold text-white">{t('addFood.modalTitle')}</h2>
+              <p className="text-xs text-slate-400">{t('addFood.subtitle')}</p>
             </div>
           </div>
 
@@ -178,11 +179,11 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
             {/* Food Name & Category */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-slate-300 font-semibold mb-1.5">Food Name *</label>
+                <label className="block text-slate-300 font-semibold mb-1.5">{t('addFood.foodName')} *</label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Maravalli Porijal"
+                  placeholder="e.g. Chicken Kottu"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full p-3 rounded-xl bg-dark-950 border border-slate-800 text-white placeholder-slate-500 focus:border-gold-500 focus:outline-none"
@@ -190,7 +191,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-1.5">Category *</label>
+                <label className="block text-slate-300 font-semibold mb-1.5">{t('addFood.category')} *</label>
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
@@ -199,19 +200,19 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
                   {categories.length > 0 ? (
                     categories.map((c) => (
                       <option key={c._id || c.name} value={c.name}>
-                        {c.name}
+                        {tCategory(c.name)}
                       </option>
                     ))
                   ) : (
                     <>
-                      <option value="Breakfast & Snacks">Breakfast & Snacks</option>
-                      <option value="Tea & Beverages">Tea & Beverages</option>
-                      <option value="Curries">Curries</option>
-                      <option value="Meals">Meals</option>
-                      <option value="Specials & Devils">Specials & Devils</option>
-                      <option value="Biryani">Biryani</option>
-                      <option value="Rice Table">Rice Table</option>
-                      <option value="Kottu Table">Kottu Table</option>
+                      <option value="Breakfast & Snacks">{tCategory('Breakfast & Snacks')}</option>
+                      <option value="Tea & Beverages">{tCategory('Tea & Beverages')}</option>
+                      <option value="Curries">{tCategory('Curries')}</option>
+                      <option value="Meals">{tCategory('Meals')}</option>
+                      <option value="Specials & Devils">{tCategory('Specials & Devils')}</option>
+                      <option value="Biryani">{tCategory('Biryani')}</option>
+                      <option value="Rice Table">{tCategory('Rice Table')}</option>
+                      <option value="Kottu Table">{tCategory('Kottu Table')}</option>
                     </>
                   )}
                 </select>
@@ -221,12 +222,12 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
             {/* Price & Prep Time */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-slate-300 font-semibold mb-1.5">Price (Rs.) *</label>
+                <label className="block text-slate-300 font-semibold mb-1.5">{t('addFood.price')} *</label>
                 <input
                   type="number"
                   required
                   min="0"
-                  placeholder="e.g. 100"
+                  placeholder="e.g. 1200"
                   value={formData.price}
                   onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                   className="w-full p-3 rounded-xl bg-dark-950 border border-slate-800 text-white placeholder-slate-500 focus:border-gold-500 focus:outline-none"
@@ -234,7 +235,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-1.5">Prep Time</label>
+                <label className="block text-slate-300 font-semibold mb-1.5">{t('addFood.prepTime')}</label>
                 <input
                   type="text"
                   placeholder="e.g. 15 mins"
@@ -247,7 +248,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
 
             {/* Veg vs Non-Veg Selection */}
             <div>
-              <label className="block text-slate-300 font-semibold mb-2">Dietary Type *</label>
+              <label className="block text-slate-300 font-semibold mb-2">{t('addFood.isVeg')} *</label>
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
@@ -259,7 +260,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
                   }`}
                 >
                   <Leaf className="w-4 h-4 text-emerald-400" />
-                  <span>🌱 Vegetarian</span>
+                  <span>🌱 {t('food.veg')}</span>
                 </button>
 
                 <button
@@ -272,18 +273,17 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
                   }`}
                 >
                   <Drumstick className="w-4 h-4 text-red-400" />
-                  <span>🥩 Non-Vegetarian</span>
+                  <span>🥩 {t('food.nonVeg')}</span>
                 </button>
               </div>
             </div>
 
-            {/* Photo / Camera Upload Option ONLY */}
+            {/* Photo Upload Option */}
             <div>
               <label className="block text-slate-300 font-semibold mb-2">
-                Food Image * (Take Photo or Choose File)
+                {t('addFood.imageUrl')} *
               </label>
 
-              {/* Hidden File Input supporting mobile Camera */}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -333,9 +333,6 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
                     <span className="text-slate-200 font-bold block text-xs">
                       Take Photo with Camera / Select Image
                     </span>
-                    <span className="text-[11px] text-slate-400">
-                      Tap to open camera or browse files
-                    </span>
                   </div>
                 </div>
               )}
@@ -343,10 +340,10 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
 
             {/* Description */}
             <div>
-              <label className="block text-slate-300 font-semibold mb-1.5">Description</label>
+              <label className="block text-slate-300 font-semibold mb-1.5">{t('addFood.description')}</label>
               <textarea
                 rows={2}
-                placeholder="Short description of ingredients and taste..."
+                placeholder="Short description..."
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 className="w-full p-3 rounded-xl bg-dark-950 border border-slate-800 text-white placeholder-slate-500 focus:border-gold-500 focus:outline-none"
@@ -363,7 +360,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
                 className="w-4 h-4 rounded text-gold-500 focus:ring-gold-500 bg-dark-950 border-slate-800"
               />
               <label htmlFor="isAvailable" className="text-slate-300 font-medium cursor-pointer">
-                In Stock & Available Now
+                {t('addFood.isAvailable')}
               </label>
             </div>
 
@@ -374,7 +371,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
                 onClick={onClose}
                 className="px-5 py-2.5 rounded-xl bg-dark-800 text-slate-300 font-semibold"
               >
-                Cancel
+                {t('addFood.cancel')}
               </button>
               <button
                 type="submit"
@@ -382,7 +379,7 @@ export default function AddFoodModal({ isOpen, onClose, onFoodAdded }) {
                 className="flex items-center gap-2 px-6 py-2.5 rounded-xl gold-gradient-bg text-dark-950 font-bold shadow-gold-glow hover:scale-105 transition-all"
               >
                 <Plus className="w-4 h-4" />
-                <span>{loading ? 'Adding Dish...' : 'Add Food Dish'}</span>
+                <span>{loading ? 'Saving...' : t('addFood.submitAdd')}</span>
               </button>
             </div>
           </form>

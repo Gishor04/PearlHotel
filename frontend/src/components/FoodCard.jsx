@@ -17,7 +17,7 @@ export default function FoodCard({ food, onViewDetail }) {
 
   const whatsappNumber = '94771234567';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    `Hello Pearl Hotel! I would like to order: ${translatedFood.name} (${formatLKR(translatedFood.price)})`
+    `${t('food.whatsappOrderMessage')} ${translatedFood.name} (${formatLKR(translatedFood.price)})`
   )}`;
 
   return (
@@ -47,12 +47,12 @@ export default function FoodCard({ food, onViewDetail }) {
           {translatedFood.isVeg ? (
             <>
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-emerald-400">{t('veg')}</span>
+              <span className="text-emerald-400">{t('food.veg')}</span>
             </>
           ) : (
             <>
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-red-400">{t('nonVeg')}</span>
+              <span className="text-red-400">{t('food.nonVeg')}</span>
             </>
           )}
         </div>
@@ -62,12 +62,12 @@ export default function FoodCard({ food, onViewDetail }) {
           {translatedFood.isAvailable ? (
             <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold shadow-md">
               <CheckCircle2 className="w-3.5 h-3.5" />
-              Available
+              {t('food.available')}
             </span>
           ) : (
             <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-red-950/80 border border-red-500/40 text-red-400 text-[11px] font-bold shadow-md">
               <AlertCircle className="w-3.5 h-3.5" />
-              Out of Stock
+              {t('food.outOfStock')}
             </span>
           )}
         </div>
@@ -92,14 +92,14 @@ export default function FoodCard({ food, onViewDetail }) {
           </h3>
 
           <p className="mt-2 text-xs sm:text-sm text-slate-400 line-clamp-2 font-light leading-relaxed">
-            {translatedFood.description || 'Authentic Sri Lankan recipe prepared with traditional Ceylon spices.'}
+            {translatedFood.description}
           </p>
         </div>
 
         {/* Bottom Price & Order Actions */}
         <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between gap-2">
           <div className="flex flex-col">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">Price</span>
+            <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">{t('food.priceLabel')}</span>
             <span className="font-serif text-xl sm:text-2xl font-black text-gold-400">
               {formatLKR(translatedFood.price)}
             </span>
@@ -125,7 +125,7 @@ export default function FoodCard({ food, onViewDetail }) {
               className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-200 hover:text-gold-400 border border-slate-700/80 hover:border-gold-500/50 text-xs font-semibold transition-all shadow-md"
             >
               <Eye className="w-4 h-4 text-gold-400" />
-              <span>{t('viewDetails')}</span>
+              <span>{t('food.viewDetails')}</span>
             </button>
           </div>
         </div>

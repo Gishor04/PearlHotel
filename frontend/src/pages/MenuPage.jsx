@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar';
 import FoodCard from '../components/FoodCard';
 import FoodModal from '../components/FoodModal';
 import { getFoods, getCategories } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 import {
   Utensils,
   RefreshCw,
@@ -30,6 +31,7 @@ const sectionIconMap = {
 };
 
 export default function MenuPage({ onOpenAddFood }) {
+  const { t, tCategory } = useLanguage();
   const [foods, setFoods] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -100,10 +102,10 @@ export default function MenuPage({ onOpenAddFood }) {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <h1 className="font-serif text-4xl sm:text-6xl font-black text-white tracking-tight">
-          PEARL HOTEL <span className="gold-gradient-text">MENU</span>
+          {t('nav.brandName')} <span className="gold-gradient-text">{t('nav.menu')}</span>
         </h1>
         <p className="mt-3 text-slate-400 text-sm sm:text-base font-light">
-          Browse through our full authentic menu organized section by section. Freshly prepared breakfasts, Ceylon teas, curries, meals, biryanis, and rice/kottu tables.
+          {t('search.menuDesc')}
         </p>
       </div>
 
@@ -127,16 +129,16 @@ export default function MenuPage({ onOpenAddFood }) {
           {/* Sort Dropdown */}
           <div className="flex items-center gap-2 self-end sm:self-center bg-dark-900 border border-slate-800 rounded-2xl px-3 py-2 text-xs">
             <ArrowUpDown className="w-4 h-4 text-gold-400" />
-            <span className="text-slate-400">Sort:</span>
+            <span className="text-slate-400">{t('search.sortByLabel')}</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="bg-transparent text-white font-semibold focus:outline-none cursor-pointer"
             >
-              <option value="default" className="bg-dark-900 text-white">Default Category</option>
-              <option value="price-low" className="bg-dark-900 text-white">Price: Low to High</option>
-              <option value="price-high" className="bg-dark-900 text-white">Price: High to Low</option>
-              <option value="rating" className="bg-dark-900 text-white">Top Rated</option>
+              <option value="default" className="bg-dark-900 text-white">{t('search.sortDefault')}</option>
+              <option value="price-low" className="bg-dark-900 text-white">{t('search.sortPriceLow')}</option>
+              <option value="price-high" className="bg-dark-900 text-white">{t('search.sortPriceHigh')}</option>
+              <option value="rating" className="bg-dark-900 text-white">{t('search.sortRating')}</option>
             </select>
           </div>
         </div>
@@ -151,8 +153,8 @@ export default function MenuPage({ onOpenAddFood }) {
       ) : groupedSections.length === 0 ? (
         <div className="py-20 text-center glass-panel rounded-3xl p-8 border border-slate-800">
           <Utensils className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-          <h3 className="font-serif text-xl font-bold text-white">No Foods Found</h3>
-          <p className="text-slate-400 text-sm mt-1">Try searching for another dish or resetting filters.</p>
+          <h3 className="font-serif text-xl font-bold text-white">{t('search.noFoodsFound')}</h3>
+          <p className="text-slate-400 text-sm mt-1">{t('search.menuDesc')}</p>
         </div>
       ) : (
         <div className="space-y-16">
@@ -169,16 +171,16 @@ export default function MenuPage({ onOpenAddFood }) {
                     </div>
                     <div>
                       <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-white">
-                        {section.categoryName}
+                        {tCategory(section.categoryName)}
                       </h3>
                       <p className="text-xs text-slate-400 font-light">
-                        {section.items.length} items in this section
+                        {section.items.length} {t('search.resultsFound')}
                       </p>
                     </div>
                   </div>
 
                   <span className="text-xs font-semibold px-3 py-1 rounded-full bg-dark-900 text-gold-400 border border-gold-600/30">
-                    Jaffna Pearl Menu
+                    {t('nav.brandName')}
                   </span>
                 </div>
 

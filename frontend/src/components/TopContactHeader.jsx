@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, Globe, Shield, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Clock, Globe, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function TopContactHeader() {
@@ -13,12 +13,12 @@ export default function TopContactHeader() {
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-[11px] sm:text-xs">
           <div className="flex items-center gap-1.5 text-slate-300 hover:text-gold-400 transition-colors">
             <MapPin className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-            <span>{t('topAddress')}</span>
+            <span>{t('nav.topAddress')}</span>
           </div>
 
           <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
             <Clock className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-            <span>{t('openHours')}</span>
+            <span>{t('nav.openHours')}</span>
           </div>
         </div>
 
@@ -41,7 +41,7 @@ export default function TopContactHeader() {
             rel="noopener noreferrer"
             className="hidden sm:flex items-center gap-1 text-slate-300 hover:text-gold-400 font-medium transition-colors"
           >
-            <span>{t('getDirections')}</span>
+            <span>{t('nav.getDirections')}</span>
             <ExternalLink className="w-3 h-3 text-gold-400" />
           </a>
 

@@ -3,13 +3,11 @@ import {
   Utensils,
   Sun,
   Coffee,
-  UtensilsCrossed,
   Flame,
   Soup,
   ChefHat,
   Crown,
   Sparkles,
-  GlassWater,
   Grid,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -27,7 +25,7 @@ const categoryIconMap = {
 };
 
 export default function CategoryFilter({ categories = [], activeCategory, onSelectCategory }) {
-  const { t, tCategory } = useLanguage();
+  const { tCategory } = useLanguage();
   const allCategoriesList = ['All', ...categories.map((c) => (typeof c === 'string' ? c : c.name))];
 
   return (
@@ -36,7 +34,7 @@ export default function CategoryFilter({ categories = [], activeCategory, onSele
         {allCategoriesList.map((catName) => {
           const isSelected = activeCategory === catName;
           const IconComponent = categoryIconMap[catName] || Utensils;
-          const displayLabel = catName === 'All' ? t('all') : tCategory(catName);
+          const displayLabel = tCategory(catName);
 
           return (
             <button

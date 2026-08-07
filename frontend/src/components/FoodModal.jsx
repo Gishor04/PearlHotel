@@ -12,7 +12,7 @@ export default function FoodModal({ food, onClose }) {
 
   const whatsappNumber = '94771234567';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    `Hello Pearl Hotel! I would like to order: ${translatedFood.name} (${formatLKR(translatedFood.price)})`
+    `${t('food.whatsappOrderMessage')} ${translatedFood.name} (${formatLKR(translatedFood.price)})`
   )}`;
 
   return (
@@ -72,7 +72,7 @@ export default function FoodModal({ food, onClose }) {
                       ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
                       : 'bg-red-950/60 text-red-400 border-red-500/30'
                   }`}>
-                    {translatedFood.isVeg ? t('veg') : t('nonVeg')}
+                    {translatedFood.isVeg ? t('food.veg') : t('food.nonVeg')}
                   </span>
 
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-md border ${
@@ -80,13 +80,13 @@ export default function FoodModal({ food, onClose }) {
                       ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
                       : 'bg-red-950/60 text-red-400 border-red-500/30'
                   }`}>
-                    {translatedFood.isAvailable ? 'Available Now' : 'Out of Stock'}
+                    {translatedFood.isAvailable ? t('food.available') : t('food.outOfStock')}
                   </span>
                 </div>
               </div>
 
               <div className="text-right">
-                <span className="text-xs text-slate-400 block font-semibold">PRICE</span>
+                <span className="text-xs text-slate-400 block font-semibold">{t('food.priceLabel')}</span>
                 <span className="font-serif text-2xl sm:text-3xl font-black text-gold-400">
                   {formatLKR(translatedFood.price)}
                 </span>
@@ -94,12 +94,12 @@ export default function FoodModal({ food, onClose }) {
             </div>
 
             <p className="mt-6 text-slate-300 text-sm sm:text-base leading-relaxed font-light">
-              {translatedFood.description || 'Prepared fresh upon ordering with authentic hand-ground Ceylon spices, premium quality ingredients, and traditional cookware.'}
+              {translatedFood.description}
             </p>
 
             <div className="mt-6 p-4 rounded-2xl bg-dark-950/60 border border-slate-800 flex items-center gap-3 text-xs text-slate-400">
               <ShieldCheck className="w-5 h-5 text-gold-400 flex-shrink-0" />
-              <span>Prepared in accordance with Pearl Hotel Jaffna strict food hygiene & quality standards.</span>
+              <span>{t('food.qualityShield')}</span>
             </div>
 
             {/* Bottom Order Actions */}
@@ -112,7 +112,7 @@ export default function FoodModal({ food, onClose }) {
                   className="flex-1 sm:flex-initial px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all"
                 >
                   <MessageCircle className="w-4 h-4 fill-white text-white" />
-                  <span>{t('orderWhatsApp')}</span>
+                  <span>{t('nav.orderWhatsApp')}</span>
                 </a>
 
                 <a
@@ -120,7 +120,7 @@ export default function FoodModal({ food, onClose }) {
                   className="flex-1 sm:flex-initial px-6 py-3 rounded-full bg-crimson-900/80 hover:bg-crimson-800 text-gold-300 border border-gold-500/40 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all"
                 >
                   <Phone className="w-4 h-4 text-gold-400" />
-                  <span>{t('quickCall')}</span>
+                  <span>{t('nav.quickCall')}</span>
                 </a>
               </div>
 
@@ -128,7 +128,7 @@ export default function FoodModal({ food, onClose }) {
                 onClick={onClose}
                 className="w-full sm:w-auto px-6 py-3 rounded-full bg-dark-800 hover:bg-dark-700 text-slate-300 font-bold text-xs transition-all"
               >
-                Close
+                {t('food.close')}
               </button>
             </div>
           </div>

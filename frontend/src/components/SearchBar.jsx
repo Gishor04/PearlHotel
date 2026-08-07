@@ -1,5 +1,6 @@
 import React from 'react';
-import { Search, X, Leaf, Drumstick, SlidersHorizontal } from 'lucide-react';
+import { Search, X, Leaf, Drumstick } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function SearchBar({
   searchTerm,
@@ -8,6 +9,8 @@ export default function SearchBar({
   onVegFilterChange,
   totalResultsCount = 0,
 }) {
+  const { t } = useLanguage();
+
   return (
     <div className="w-full flex flex-col md:flex-row items-center gap-4 bg-dark-900/80 p-4 rounded-3xl border border-gold-600/20 glass-panel shadow-2xl">
       {/* Live Search Input */}
@@ -17,7 +20,7 @@ export default function SearchBar({
           type="text"
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Search by food name, category (e.g., Kottu, Biriyani, Tea)..."
+          placeholder={t('search.placeholder')}
           className="w-full pl-12 pr-10 py-3 rounded-2xl bg-dark-950/90 text-white placeholder-slate-400 border border-slate-800 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500 text-sm sm:text-base transition-all"
         />
         {searchTerm && (
@@ -41,7 +44,7 @@ export default function SearchBar({
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            All
+            {t('search.all')}
           </button>
           <button
             onClick={() => onVegFilterChange('veg')}
@@ -52,7 +55,7 @@ export default function SearchBar({
             }`}
           >
             <Leaf className="w-3.5 h-3.5 text-emerald-400" />
-            Veg Only
+            {t('search.vegOnly')}
           </button>
           <button
             onClick={() => onVegFilterChange('nonveg')}
@@ -63,12 +66,12 @@ export default function SearchBar({
             }`}
           >
             <Drumstick className="w-3.5 h-3.5 text-red-400" />
-            Non-Veg
+            {t('search.nonVegOnly')}
           </button>
         </div>
 
         <div className="text-xs text-slate-400 font-medium px-2 whitespace-nowrap">
-          <span className="text-gold-400 font-bold">{totalResultsCount}</span> dishes
+          <span className="text-gold-400 font-bold">{totalResultsCount}</span> {t('search.resultsFound')}
         </div>
       </div>
     </div>
