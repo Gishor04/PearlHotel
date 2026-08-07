@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Crown, MapPin, Phone, Clock, Heart, Lock, ExternalLink } from 'lucide-react';
+import { Crown, MapPin, Phone, Clock, Heart, Lock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
@@ -53,21 +53,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Popular Categories */}
+          {/* Top Specialties (Fully Translated) */}
           <div className="space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">Top Specialties</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('topSpecialties')}</h4>
             <ul className="space-y-2 text-xs font-light">
-              <li className="text-slate-300">Sizzling Chicken & Beef Kottu</li>
-              <li className="text-slate-300">Dum Biriyani & Special Meals</li>
-              <li className="text-slate-300">Authentic Egg & Paal Appam</li>
-              <li className="text-slate-300">Devilled Prawns, Squid & Omelettes</li>
-              <li className="text-slate-300">Ceylon Black, Milk & Cardamom Teas</li>
+              <li className="text-slate-300">{t('specialtyKottu')}</li>
+              <li className="text-slate-300">{t('specialtyBiryani')}</li>
+              <li className="text-slate-300">{t('specialtyAppam')}</li>
+              <li className="text-slate-300">{t('specialtyDevils')}</li>
+              <li className="text-slate-300">{t('specialtyTeas')}</li>
             </ul>
           </div>
 
           {/* Contact & Hours */}
           <div className="space-y-3 text-xs">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('contactUs')}</h4>
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">{t('visitContact')}</h4>
             <div className="flex items-start gap-2.5">
               <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
               <span>{t('topAddress')}</span>
@@ -83,11 +83,29 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom copyright (date-free title) */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        {/* Bottom copyright & PIRA AI AURA Designer Credit */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© PEARL HOTEL Restaurant. {t('rights')}</p>
+
+          {/* PIRA AI AURA Designer Badge */}
+          <div className="flex items-center gap-3 bg-dark-900/80 px-4 py-2 rounded-2xl border border-slate-800/80 shadow-md">
+            <img
+              src="/images/pira_ai_aura_logo.png"
+              alt="PIRA AI AURA Team Logo"
+              className="h-7 w-auto object-contain rounded-md"
+            />
+            <div className="flex flex-col text-left">
+              <span className="text-[11px] font-bold text-white tracking-wide">
+                {t('designedBy')}
+              </span>
+              <span className="text-[9px] text-slate-500 font-mono">
+                Creative • Intelligent • Impactful
+              </span>
+            </div>
+          </div>
+
           <p className="flex items-center gap-1 text-slate-400">
-            Crafted with <Heart className="w-3.5 h-3.5 text-crimson-800 fill-crimson-800" /> for Authentic Ceylon Food Lovers
+            {t('craftedWith')} <Heart className="w-3.5 h-3.5 text-crimson-800 fill-crimson-800" />
           </p>
         </div>
       </div>

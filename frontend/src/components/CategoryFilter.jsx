@@ -12,21 +12,22 @@ import {
   GlassWater,
   Grid,
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const categoryIconMap = {
   All: Grid,
-  Breakfast: Sun,
-  Tea: Coffee,
-  Snacks: UtensilsCrossed,
+  'Breakfast & Snacks': Sun,
+  'Tea & Beverages': Coffee,
   Curries: Flame,
-  Rice: Soup,
-  Kottu: ChefHat,
-  Biriyani: Crown,
-  'Special Meals': Sparkles,
-  Drinks: GlassWater,
+  Meals: Utensils,
+  'Specials & Devils': Sparkles,
+  Biryani: Crown,
+  'Rice Table': Soup,
+  'Kottu Table': ChefHat,
 };
 
 export default function CategoryFilter({ categories = [], activeCategory, onSelectCategory }) {
+  const { t, tCategory } = useLanguage();
   const allCategoriesList = ['All', ...categories.map((c) => (typeof c === 'string' ? c : c.name))];
 
   return (
@@ -35,6 +36,7 @@ export default function CategoryFilter({ categories = [], activeCategory, onSele
         {allCategoriesList.map((catName) => {
           const isSelected = activeCategory === catName;
           const IconComponent = categoryIconMap[catName] || Utensils;
+          const displayLabel = catName === 'All' ? t('all') : tCategory(catName);
 
           return (
             <button
@@ -47,7 +49,7 @@ export default function CategoryFilter({ categories = [], activeCategory, onSele
               }`}
             >
               <IconComponent className={`w-4 h-4 ${isSelected ? 'text-dark-950' : 'text-gold-400'}`} />
-              <span>{catName}</span>
+              <span>{displayLabel}</span>
             </button>
           );
         })}

@@ -21,7 +21,6 @@ import {
   Sun,
   Soup,
 } from 'lucide-react';
-import toast from 'react-hot-toast';
 
 const sectionIconMap = {
   'Breakfast & Snacks': Sun,
@@ -35,7 +34,7 @@ const sectionIconMap = {
 };
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, tCategory } = useLanguage();
   const [foods, setFoods] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -151,7 +150,7 @@ export default function HomePage() {
             <Utensils className="w-12 h-12 text-slate-600 mx-auto mb-3" />
             <h3 className="font-serif text-xl font-bold text-white">{t('noFoodsFound')}</h3>
             <p className="text-slate-400 text-sm mt-1">
-              No matching items for "{searchTerm}" in category "{activeCategory}".
+              No matching items for "{searchTerm}" in category "{tCategory(activeCategory)}".
             </p>
             <button
               onClick={() => {
@@ -180,10 +179,10 @@ export default function HomePage() {
                       </div>
                       <div>
                         <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-white">
-                          {section.categoryName}
+                          {tCategory(section.categoryName)}
                         </h3>
                         <p className="text-xs text-slate-400 font-light">
-                          {section.items.length} authentic dishes in this section
+                          {section.items.length} items in this section
                         </p>
                       </div>
                     </div>

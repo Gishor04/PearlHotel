@@ -4,14 +4,15 @@ import { X, Star, Clock, ShieldCheck, MessageCircle, Phone } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext';
 
 export default function FoodModal({ food, onClose }) {
-  const { t } = useLanguage();
+  const { t, tFood } = useLanguage();
   if (!food) return null;
 
+  const translatedFood = tFood(food);
   const formatLKR = (amount) => `Rs. ${Number(amount).toLocaleString('en-LK')}`;
 
   const whatsappNumber = '94771234567';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    `Hello Pearl Hotel! I would like to order: ${food.name} (${formatLKR(food.price)})`
+    `Hello Pearl Hotel! I would like to order: ${translatedFood.name} (${formatLKR(translatedFood.price)})`
   )}`;
 
   return (
@@ -34,25 +35,25 @@ export default function FoodModal({ food, onClose }) {
           {/* Modal Hero Image */}
           <div className="relative w-full h-64 sm:h-80 overflow-hidden">
             <img
-              src={food.imageUrl}
-              alt={food.name}
+              src={translatedFood.imageUrl}
+              alt={translatedFood.name}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/30 to-transparent" />
 
             <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between">
               <span className="px-3.5 py-1.5 rounded-xl bg-dark-950/90 text-gold-400 font-serif font-bold text-sm border border-gold-500/40">
-                {food.category}
+                {translatedFood.category}
               </span>
 
               <div className="flex items-center gap-2">
                 <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-dark-950/90 text-slate-200 text-xs font-semibold border border-slate-700">
                   <Star className="w-4 h-4 fill-gold-400 text-gold-400" />
-                  {food.rating || 4.8} / 5.0
+                  {translatedFood.rating || 4.8} / 5.0
                 </span>
                 <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-dark-950/90 text-slate-200 text-xs font-semibold border border-slate-700">
                   <Clock className="w-4 h-4 text-gold-400" />
-                  {food.prepTime || '15 mins'}
+                  {translatedFood.prepTime || '15 mins'}
                 </span>
               </div>
             </div>
@@ -63,23 +64,23 @@ export default function FoodModal({ food, onClose }) {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-white">
-                  {food.name}
+                  {translatedFood.name}
                 </h2>
                 <div className="mt-2 flex items-center gap-3">
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-md border ${
-                    food.isVeg
+                    translatedFood.isVeg
                       ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
                       : 'bg-red-950/60 text-red-400 border-red-500/30'
                   }`}>
-                    {food.isVeg ? t('veg') : t('nonVeg')}
+                    {translatedFood.isVeg ? t('veg') : t('nonVeg')}
                   </span>
 
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-md border ${
-                    food.isAvailable
+                    translatedFood.isAvailable
                       ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
                       : 'bg-red-950/60 text-red-400 border-red-500/30'
                   }`}>
-                    {food.isAvailable ? 'Available Now' : 'Out of Stock'}
+                    {translatedFood.isAvailable ? 'Available Now' : 'Out of Stock'}
                   </span>
                 </div>
               </div>
@@ -87,13 +88,13 @@ export default function FoodModal({ food, onClose }) {
               <div className="text-right">
                 <span className="text-xs text-slate-400 block font-semibold">PRICE</span>
                 <span className="font-serif text-2xl sm:text-3xl font-black text-gold-400">
-                  {formatLKR(food.price)}
+                  {formatLKR(translatedFood.price)}
                 </span>
               </div>
             </div>
 
             <p className="mt-6 text-slate-300 text-sm sm:text-base leading-relaxed font-light">
-              {food.description || 'Prepared fresh upon ordering with authentic hand-ground Ceylon spices, premium quality ingredients, and traditional cookware.'}
+              {translatedFood.description || 'Prepared fresh upon ordering with authentic hand-ground Ceylon spices, premium quality ingredients, and traditional cookware.'}
             </p>
 
             <div className="mt-6 p-4 rounded-2xl bg-dark-950/60 border border-slate-800 flex items-center gap-3 text-xs text-slate-400">
@@ -103,7 +104,6 @@ export default function FoodModal({ food, onClose }) {
 
             {/* Bottom Order Actions */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-800/80 pt-6">
-              
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <a
                   href={whatsappUrl}
@@ -130,7 +130,6 @@ export default function FoodModal({ food, onClose }) {
               >
                 Close
               </button>
-
             </div>
           </div>
         </motion.div>

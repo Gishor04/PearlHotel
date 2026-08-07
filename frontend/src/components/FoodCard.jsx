@@ -4,7 +4,8 @@ import { Star, Eye, CheckCircle2, AlertCircle, MessageCircle } from 'lucide-reac
 import { useLanguage } from '../context/LanguageContext';
 
 export default function FoodCard({ food, onViewDetail }) {
-  const { t } = useLanguage();
+  const { t, tFood } = useLanguage();
+  const translatedFood = tFood(food);
 
   const formatLKR = (amount) => {
     return `Rs. ${Number(amount).toLocaleString('en-LK')}`;
@@ -16,7 +17,7 @@ export default function FoodCard({ food, onViewDetail }) {
 
   const whatsappNumber = '94771234567';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    `Hello Pearl Hotel! I would like to order: ${food.name} (${formatLKR(food.price)})`
+    `Hello Pearl Hotel! I would like to order: ${translatedFood.name} (${formatLKR(translatedFood.price)})`
   )}`;
 
   return (
@@ -26,14 +27,14 @@ export default function FoodCard({ food, onViewDetail }) {
       viewport={{ once: true, margin: '50px' }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.25 }}
-      onClick={() => onViewDetail(food)}
+      onClick={() => onViewDetail(translatedFood)}
       className="group relative rounded-3xl bg-dark-900/90 border border-slate-800/80 hover:border-gold-500/50 glass-panel glass-panel-hover overflow-hidden flex flex-col justify-between shadow-xl cursor-pointer"
     >
       {/* Upper Image Container */}
       <div className="relative w-full h-52 sm:h-56 overflow-hidden bg-dark-950">
         <img
-          src={food.imageUrl}
-          alt={food.name}
+          src={translatedFood.imageUrl}
+          alt={translatedFood.name}
           onError={handleImageError}
           loading="lazy"
           decoding="async"
@@ -43,7 +44,7 @@ export default function FoodCard({ food, onViewDetail }) {
 
         {/* Veg / Non-Veg Indicator Badge */}
         <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-dark-950/80 backdrop-blur-md border border-slate-700/60 text-[11px] font-semibold">
-          {food.isVeg ? (
+          {translatedFood.isVeg ? (
             <>
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-emerald-400">{t('veg')}</span>
@@ -58,7 +59,7 @@ export default function FoodCard({ food, onViewDetail }) {
 
         {/* Availability Status Badge */}
         <div className="absolute top-3 right-3">
-          {food.isAvailable ? (
+          {translatedFood.isAvailable ? (
             <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold shadow-md">
               <CheckCircle2 className="w-3.5 h-3.5" />
               Available
@@ -74,11 +75,11 @@ export default function FoodCard({ food, onViewDetail }) {
         {/* Rating & Category Tag */}
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
           <span className="px-3 py-1 rounded-lg bg-dark-950/90 text-gold-400 font-semibold border border-gold-600/30">
-            {food.category}
+            {translatedFood.category}
           </span>
           <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-dark-950/90 text-slate-200 font-semibold border border-slate-800">
             <Star className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
-            {food.rating || '4.8'}
+            {translatedFood.rating || '4.8'}
           </span>
         </div>
       </div>
@@ -87,11 +88,11 @@ export default function FoodCard({ food, onViewDetail }) {
       <div className="p-5 flex-1 flex flex-col justify-between">
         <div>
           <h3 className="font-serif text-lg sm:text-xl font-bold text-white group-hover:text-gold-400 transition-colors">
-            {food.name}
+            {translatedFood.name}
           </h3>
 
           <p className="mt-2 text-xs sm:text-sm text-slate-400 line-clamp-2 font-light leading-relaxed">
-            {food.description || 'Authentic Sri Lankan recipe prepared with traditional Ceylon spices.'}
+            {translatedFood.description || 'Authentic Sri Lankan recipe prepared with traditional Ceylon spices.'}
           </p>
         </div>
 
@@ -100,7 +101,7 @@ export default function FoodCard({ food, onViewDetail }) {
           <div className="flex flex-col">
             <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">Price</span>
             <span className="font-serif text-xl sm:text-2xl font-black text-gold-400">
-              {formatLKR(food.price)}
+              {formatLKR(translatedFood.price)}
             </span>
           </div>
 
@@ -119,12 +120,12 @@ export default function FoodCard({ food, onViewDetail }) {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                onViewDetail(food);
+                onViewDetail(translatedFood);
               }}
               className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-200 hover:text-gold-400 border border-slate-700/80 hover:border-gold-500/50 text-xs font-semibold transition-all shadow-md"
             >
               <Eye className="w-4 h-4 text-gold-400" />
-              <span>Details</span>
+              <span>{t('viewDetails')}</span>
             </button>
           </div>
         </div>
