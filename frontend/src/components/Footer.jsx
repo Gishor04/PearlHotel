@@ -72,9 +72,15 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
               <span>{t('nav.topAddress')}</span>
             </div>
-            <div className="flex items-center gap-2.5">
-              <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
-              <a href="tel:+94771234567" className="text-gold-400 hover:underline font-bold">+94 77 123 4567</a>
+            <div className="flex flex-col gap-1.5 pl-6 border-l-2 border-gold-600/30">
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
+                <a href="tel:0212213826" className="text-gold-400 hover:underline font-bold">Landline: 021 221 3826</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-semibold text-emerald-400">WhatsApp:</span>
+                <a href="https://wa.me/94769489016" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline font-semibold">+94 76 948 9016</a>
+              </div>
             </div>
             <div className="flex items-start gap-2.5">
               <Clock className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />

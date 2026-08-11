@@ -75,19 +75,28 @@ export default function StorefrontLocationSection() {
                 </div>
               </div>
 
-              {/* Phone Call Card */}
+              {/* Phone & WhatsApp Contact Card (Landline Top Primary, WhatsApp Secondary Below) */}
               <div className="flex items-start gap-3.5 p-4 rounded-xl bg-dark-950/80 border border-slate-800">
                 <div className="p-2.5 rounded-lg bg-crimson-800/20 text-red-400 border border-crimson-800/40 flex-shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div className="flex-1 flex items-center justify-between">
-                  <div>
+                <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="space-y-1">
                     <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('storefront.phoneLabel')}</span>
-                    <p className="text-sm font-bold text-white mt-0.5">{t('storefront.phoneNumbers')}</p>
+                    {/* Landline Top Primary */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-slate-300">Primary Landline:</span>
+                      <a href="tel:0212213826" className="text-sm font-extrabold text-gold-300 hover:text-gold-200">021 221 3826</a>
+                    </div>
+                    {/* WhatsApp Secondary Directly Below */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-slate-400">WhatsApp Orders:</span>
+                      <a href="https://wa.me/94769489016" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-emerald-400 hover:underline">+94 76 948 9016</a>
+                    </div>
                   </div>
                   <a
-                    href="tel:+94771234567"
-                    className="px-4 py-2 rounded-full gold-gradient-bg text-dark-950 text-xs font-bold shadow-gold-glow hover:scale-105 transition-transform"
+                    href="tel:0212213826"
+                    className="px-4 py-2 rounded-full gold-gradient-bg text-dark-950 text-xs font-bold shadow-gold-glow hover:scale-105 transition-transform self-start sm:self-center"
                   >
                     {t('nav.quickCall')}
                   </a>

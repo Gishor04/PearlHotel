@@ -15,7 +15,7 @@ export default function FoodCard({ food, onViewDetail }) {
     e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=75';
   };
 
-  const whatsappNumber = '94771234567';
+  const whatsappNumber = '94769489016';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `${t('food.whatsappOrderMessage')} ${translatedFood.name} (${formatLKR(translatedFood.price)})`
   )}`;
@@ -57,8 +57,8 @@ export default function FoodCard({ food, onViewDetail }) {
           )}
         </div>
 
-        {/* Availability Status Badge */}
-        <div className="absolute top-3 right-3">
+        {/* Availability Status & Portion Badge */}
+        <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
           {translatedFood.isAvailable ? (
             <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold shadow-md">
               <CheckCircle2 className="w-3.5 h-3.5" />
@@ -68,6 +68,18 @@ export default function FoodCard({ food, onViewDetail }) {
             <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-red-950/80 border border-red-500/40 text-red-400 text-[11px] font-bold shadow-md">
               <AlertCircle className="w-3.5 h-3.5" />
               {t('food.outOfStock')}
+            </span>
+          )}
+
+          {/* Half / Full Portion Visual Badge */}
+          {food.name.toLowerCase().includes('half') && (
+            <span className="px-2.5 py-1 rounded-full bg-amber-500 text-dark-950 text-[10px] font-black uppercase tracking-wider shadow-lg border border-amber-300">
+              {t('food.halfPortion')}
+            </span>
+          )}
+          {food.name.toLowerCase().includes('full') && (
+            <span className="px-2.5 py-1 rounded-full bg-crimson-800 text-gold-300 text-[10px] font-black uppercase tracking-wider shadow-lg border border-gold-500/50">
+              {t('food.fullPortion')}
             </span>
           )}
         </div>

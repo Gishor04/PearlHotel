@@ -10,7 +10,7 @@ export default function FloatingActions() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const whatsappNumber = '94771234567';
+  const whatsappNumber = '94769489016';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello Pearl Hotel! I would like to place an order.')}`;
 
   return (
@@ -29,9 +29,9 @@ export default function FloatingActions() {
       <div className="relative flex items-center">
         {showCallTooltip && (
           <div className="absolute right-14 bg-dark-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-gold-500/40 shadow-xl whitespace-nowrap animate-fade-in flex items-center gap-2">
-            <span>+94 77 123 4567</span>
+            <span>021 221 3826</span>
             <a
-              href="tel:+94771234567"
+              href="tel:0212213826"
               className="px-2 py-0.5 rounded bg-gold-500 text-dark-950 font-black text-[10px]"
             >
               {t('nav.quickCall')}
@@ -39,7 +39,7 @@ export default function FloatingActions() {
           </div>
         )}
         <a
-          href="tel:+94771234567"
+          href="tel:0212213826"
           onMouseEnter={() => setShowCallTooltip(true)}
           onMouseLeave={() => setShowCallTooltip(false)}
           className="p-3.5 rounded-full bg-gradient-to-tr from-amber-600 to-gold-500 text-dark-950 shadow-gold-glow hover:scale-110 active:scale-95 transition-all flex items-center justify-center group"

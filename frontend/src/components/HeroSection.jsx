@@ -7,17 +7,17 @@ import { useLanguage } from '../context/LanguageContext';
 export default function HeroSection({ onExploreClick }) {
   const { t } = useLanguage();
 
-  const whatsappNumber = '94771234567';
+  const whatsappNumber = '94769489016';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello Pearl Hotel! I would like to place an order.')}`;
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-dark-950">
       
-      {/* Real AI Scenery Background Layer */}
+      {/* Background Layer with Dark Luxury Gradient Overlays */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/ai_bg_scenery.png"
-          alt="Pearl Hotel Luxury Fine Dining Scenery Background"
+          alt="Pearl Hotel Luxury Dining Ambience"
           className="w-full h-full object-cover object-center opacity-25 scale-105"
         />
         {/* Dark Luxury Gradient Overlays */}
@@ -89,7 +89,7 @@ export default function HeroSection({ onExploreClick }) {
               {t('hero.description')}
             </motion.p>
 
-            {/* Action Buttons: View Menu, WhatsApp Order, Call Button */}
+            {/* Action Buttons: View Menu, Primary Landline Call & WhatsApp Order */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,28 +98,32 @@ export default function HeroSection({ onExploreClick }) {
             >
               <Link
                 to="/menu"
-                className="px-8 py-4 rounded-full gold-gradient-bg text-dark-950 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-3 shadow-gold-glow hover:scale-105 active:scale-95 transition-all duration-300"
+                className="px-7 py-3.5 rounded-full gold-gradient-bg text-dark-950 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-gold-glow hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 <Utensils className="w-5 h-5" />
                 <span>{t('hero.viewMenu')}</span>
               </Link>
 
+              {/* Primary Landline Call Button */}
+              <a
+                href="tel:0212213826"
+                className="px-6 py-3.5 rounded-full bg-crimson-900/90 hover:bg-crimson-800 text-gold-300 font-extrabold text-sm sm:text-base tracking-wide border border-gold-500/50 flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-md"
+                title="Call Primary Landline"
+              >
+                <Phone className="w-5 h-5 text-gold-400 animate-pulse" />
+                <span>021 221 3826</span>
+              </a>
+
+              {/* WhatsApp Integration Button (Secondary) */}
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 shadow-2xl hover:scale-105 transition-all border border-emerald-400/40"
+                className="px-6 py-3.5 rounded-full bg-emerald-700/90 hover:bg-emerald-600 text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 shadow-xl hover:scale-105 transition-all border border-emerald-400/40"
+                title="Order via WhatsApp"
               >
                 <MessageCircle className="w-5 h-5 fill-white text-white" />
-                <span>{t('nav.orderWhatsApp')}</span>
-              </a>
-
-              <a
-                href="tel:+94771234567"
-                className="px-6 py-4 rounded-full bg-crimson-900/80 hover:bg-crimson-800 text-gold-300 font-bold text-sm sm:text-base tracking-wide border border-gold-500/40 flex items-center justify-center gap-2 transition-all hover:scale-105"
-              >
-                <Phone className="w-5 h-5 text-gold-400" />
-                <span>+94 77 123 4567</span>
+                <span>WhatsApp: +94 76 948 9016</span>
               </a>
             </motion.div>
 
@@ -149,7 +153,7 @@ export default function HeroSection({ onExploreClick }) {
             </motion.div>
           </motion.div>
 
-          {/* Right Image Display with Glassmorphic Floating Cards */}
+          {/* Right Image Display with Real Food Dish Photos */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -159,11 +163,11 @@ export default function HeroSection({ onExploreClick }) {
             {/* Glowing Backdrop Ring */}
             <div className="absolute w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full border border-gold-500/20 bg-gradient-to-tr from-crimson-800/30 to-gold-600/10 blur-md animate-pulse-slow" />
 
-            {/* Main Featured Dish Frame */}
+            {/* Main Featured Real Biryani Frame */}
             <div className="relative w-[300px] sm:w-[400px] h-[360px] sm:h-[480px] rounded-3xl overflow-hidden border-2 border-gold-500/30 shadow-2xl shadow-gold-glow group">
               <img
                 src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1000&q=80"
-                alt="Pearl Hotel Signature Dum Biriyani"
+                alt="Pearl Hotel Chicken Dum Biriyani"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent" />
@@ -174,7 +178,7 @@ export default function HeroSection({ onExploreClick }) {
                   <div>
                     <span className="text-[10px] font-bold tracking-widest text-gold-400 uppercase">{t('hero.chefSignature')}</span>
                     <h3 className="font-serif text-lg font-bold text-white">{t('hero.biryaniTitle')}</h3>
-                    <p className="text-xs text-slate-300 mt-0.5">Rs. 1,450</p>
+                    <p className="text-xs text-slate-300 mt-0.5">Rs. 1,000</p>
                   </div>
                   <span className="px-3 py-1 rounded-full bg-crimson-800/80 text-gold-300 text-xs font-bold border border-gold-500/40">
                     {t('hero.hotItem')}
@@ -183,7 +187,7 @@ export default function HeroSection({ onExploreClick }) {
               </div>
             </div>
 
-            {/* Floating Card 1: Kottu Special */}
+            {/* Floating Card 1: Real Sizzling Kottu Photo */}
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
@@ -192,15 +196,15 @@ export default function HeroSection({ onExploreClick }) {
               <img
                 src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=200&q=80"
                 alt="Sizzling Chicken Kottu"
-                className="w-12 h-12 rounded-xl object-cover"
+                className="w-12 h-12 rounded-xl object-cover border border-gold-500/30"
               />
               <div>
                 <h4 className="text-xs font-bold text-white font-serif">{t('hero.sizzlingKottu')}</h4>
-                <p className="text-[11px] text-gold-400 font-semibold">{t('hero.kottuFromPrice')}</p>
+                <p className="text-[11px] text-gold-400 font-semibold">From Rs. 400</p>
               </div>
             </motion.div>
 
-            {/* Floating Card 2: Ceylon Tea */}
+            {/* Floating Card 2: Real Ceylon Milk Tea Photo */}
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}

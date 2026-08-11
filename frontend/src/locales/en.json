@@ -3,8 +3,8 @@
     "brandName": "PEARL HOTEL",
     "locationSub": "Navatkuli, Jaffna",
     "topAddress": "No: 82, A9 Road, Navatkuli Junction, Kaithady, Jaffna",
-    "openHours": "Open Daily: 6:00 AM – 10:30 PM",
-    "callUs": "Call: +94 77 123 4567",
+    "openHours": "Open Daily: 7:30 AM – 9:45 PM",
+    "callUs": "Call: 021 221 3826",
     "home": "Home",
     "menu": "Menu & Foods",
     "adminLogin": "Admin Portal",
@@ -40,10 +40,10 @@
     "junctionSub": "Navatkuli Junction, Kaithady, Jaffna",
     "addressLabel": "Address:",
     "fullAddress": "No: 82, A9 Road, Navatkuli Junction, Kaithady, Jaffna, Sri Lanka",
-    "phoneLabel": "Phone:",
-    "phoneNumbers": "+94 77 123 4567 / +94 21 222 3456",
+    "phoneLabel": "Phone / WhatsApp:",
+    "phoneNumbers": "021 221 3826 / +94 76 948 9016",
     "hoursLabel": "Opening Hours:",
-    "hoursDetail": "Open 7 Days a Week: 6:00 AM – 10:30 PM (Hot Kottu & Tea available till closing)",
+    "hoursDetail": "Open Daily: 7:30 AM – 9:45 PM (7.30 - 9.45)",
     "openDirectionsMaps": "Open Directions in Google Maps"
   },
   "search": {
@@ -68,6 +68,7 @@
     "All": "All Categories",
     "Breakfast & Snacks": "Breakfast & Snacks",
     "Tea & Beverages": "Tea & Beverages",
+    "Sodas & Water Bottles": "Sodas & Water Bottles",
     "Curries": "Curries",
     "Meals": "Meals",
     "Specials & Devils": "Specials & Devils",
@@ -86,7 +87,9 @@
     "orderNow": "Order Now",
     "close": "Close",
     "qualityShield": "Prepared in accordance with Pearl Hotel Jaffna strict food hygiene & quality standards.",
-    "whatsappOrderMessage": "Hello Pearl Hotel! I would like to order:"
+    "whatsappOrderMessage": "Hello Pearl Hotel! I would like to order:",
+    "halfPortion": "⚡ HALF PORTION",
+    "fullPortion": "🔥 FULL PORTION"
   },
   "foodItems": {
     "Plain Tea": {
@@ -114,7 +117,7 @@
       "description": "Warm wholesome malted beverage rich in essential vitamins."
     },
     "Nescafe": {
-      "name": "Nescafe",
+      "name": "Nescafe Coffee",
       "description": "Rich aromatic coffee blend served hot with frothy milk."
     },
     "Fresh Lime Juice": {
@@ -138,11 +141,11 @@
       "description": "Bowl-shaped coconut milk hopper with crispy golden edges."
     },
     "Paal Appam": {
-      "name": "Paal Appam",
+      "name": "Milk Hopper (Paal Appam)",
       "description": "Sweet coconut cream hopper infused with cardamom aroma."
     },
     "Egg Appam": {
-      "name": "Egg Appam",
+      "name": "Egg Hopper (Egg Appam)",
       "description": "Golden hopper with a soft poached egg cooked at the center."
     },
     "String Hopper": {
@@ -150,15 +153,15 @@
       "description": "Steamed rice noodle nests served with pol sambol and dahl curry (Set of 10)."
     },
     "Puttu": {
-      "name": "Puttu",
-      "description": "Steamed rice flour and coconut cylinders served with spiced curry."
+      "name": "Steamed Puttu",
+      "description": "Steamed rice flour and freshly grated coconut cylinder."
     },
     "Dosai": {
-      "name": "Dosai",
+      "name": "Crispy Dosai",
       "description": "Crispy paper thin fermented rice crepe served with coconut chutney & sambar."
     },
     "Parotta": {
-      "name": "Parotta",
+      "name": "Flaky Parotta",
       "description": "Flaky layered griddled roti toasted golden brown."
     },
     "Roli / Roll": {
@@ -174,11 +177,11 @@
       "description": "Crispy roll stuffed with spiced potato filling and hard-boiled egg."
     },
     "Samosa": {
-      "name": "Samosa",
-      "description": "Golden fried triangular pastry filled with spiced potato and pea filling."
+      "name": "Crispy Samosa",
+      "description": "Deep-fried triangular pastry loaded with spiced potato and green peas."
     },
     "Vadai": {
-      "name": "Vadai",
+      "name": "Crispy Vadai",
       "description": "Traditional crunchy lentil fritter packed with onion and green chili."
     },
     "Methu Vadi / Ulundu Vadai": {
@@ -190,43 +193,43 @@
       "description": "Traditional sweet banana fritter snack fried crisp on the outside."
     },
     "Chicken Curry": {
-      "name": "Chicken Curry",
+      "name": "Ceylon Chicken Curry",
       "description": "Tender chicken slow-cooked in rich dark roasted Ceylon curry spices."
     },
     "Beef Curry": {
-      "name": "Beef Curry",
+      "name": "Spiced Beef Curry",
       "description": "Succulent beef simmered with thick spicy Ceylon gravy."
     },
     "Mutton Curry": {
-      "name": "Mutton Curry",
-      "description": "Premium tender mutton cooked in clay pot curry spices."
+      "name": "Jaffna Claypot Mutton Curry",
+      "description": "Tender mutton slow-cooked in spicy Jaffna claypot curry."
     },
     "Fish Curry": {
-      "name": "Fish Curry",
-      "description": "Fresh ocean fish simmered in tangy goraka and coconut curry."
+      "name": "Jaffna Fish Curry",
+      "description": "Fresh ocean fish cooked in tangy dark coconut gravy."
     },
     "Fish Fry": {
-      "name": "Fish Fry",
-      "description": "Pan-fried sea fish marinated in red chili paste and spices."
+      "name": "Pan-Fried Sea Fish",
+      "description": "Spicy pan-fried sea fish slice marinated in Jaffna chili paste."
     },
     "Veg Meal": {
-      "name": "Veg Meal",
+      "name": "Traditional Veg Meal Platter",
       "description": "Traditional Sri Lankan rice platter with dahl, 4 veggie curries & papadam."
     },
     "Fish Meal": {
-      "name": "Fish Meal",
+      "name": "Ocean Fish Meal Platter",
       "description": "Authentic rice thali served with sea fish curry, vegetable sides & sambol."
     },
     "Egg Meal": {
-      "name": "Egg Meal",
+      "name": "Egg Meal Platter",
       "description": "Rice meal platter featuring spiced hard-boiled eggs in red curry gravy."
     },
     "Chicken Meal": {
-      "name": "Chicken Meal",
+      "name": "Roasted Chicken Meal Platter",
       "description": "Full rice thali served with roasted chicken curry & 4 vegetable curries."
     },
     "Beef Meal": {
-      "name": "Beef Meal",
+      "name": "Spiced Beef Meal Platter",
       "description": "Hearty rice platter served with dark spicy beef curry and sides."
     },
     "Mulisa Meal (Mutton Special Meal)": {
@@ -234,8 +237,8 @@
       "description": "Pearl Hotel Royal Special banana-leaf thali served with tender mutton curry."
     },
     "Omelette": {
-      "name": "Omelette",
-      "description": "Fluffy double-egg omelette pan-fried with onions, tomatoes & green chili."
+      "name": "Double Egg Omelette",
+      "description": "Fluffy double egg omelette with onions, green chillies & pepper."
     },
     "Chicken Devil": {
       "name": "Chicken Devil",
@@ -254,20 +257,20 @@
       "description": "Seared beef strips tossed in fiery tomato-chili reduction with bell peppers."
     },
     "Egg Biryani": {
-      "name": "Egg Biryani",
-      "description": "Fragrant basmati rice slow-cooked with exotic biryani spices & boiled egg."
+      "name": "Egg Dum Biryani",
+      "description": "Aromatic basmati biryani slow-cooked with boiled egg & raita."
     },
     "Chicken Biryani": {
-      "name": "Chicken Biryani",
-      "description": "Royal Dum Biryani layered with succulent spiced chicken leg & boiled egg."
+      "name": "Chicken Dum Biryani",
+      "description": "Signature Dum Biryani cooked with succulent spiced chicken leg & boiled egg."
     },
     "Chicken Dum Biryani": {
       "name": "Chicken Dum Biryani",
       "description": "Aromatic long grain basmati rice slow cooked in sealed handi with tender chicken."
     },
     "Beef Biryani": {
-      "name": "Beef Biryani",
-      "description": "Spiced basmati biryani cooked with tender beef chunks & caramelized onions."
+      "name": "Spiced Beef Biryani",
+      "description": "Spiced basmati biryani cooked with tender beef cuts & fried onions."
     },
     "Mutton Biryani": {
       "name": "Mutton Biryani",
@@ -278,28 +281,28 @@
       "description": "Succulent Ceylon mutton pieces layered with saffron basmati rice & boiled egg."
     },
     "Veg Rice (Full Portion)": {
-      "name": "Veg Rice (Full Portion)",
-      "description": "Wok-tossed basmati fried rice with fresh vegetables & soy glaze (Full portion)."
+      "name": "Veg Fried Rice (Full Portion)",
+      "description": "Wok-tossed basmati fried rice with fresh vegetables (Full portion)."
     },
     "Veg Rice (Half Portion)": {
-      "name": "Veg Rice (Half Portion)",
+      "name": "Veg Fried Rice (Half Portion)",
       "description": "Half portion wok-tossed vegetable fried rice."
     },
     "Egg Rice (Full Portion)": {
-      "name": "Egg Rice (Full Portion)",
+      "name": "Egg Fried Rice (Full Portion)",
       "description": "Savory fried rice scrambled with fresh farm eggs (Full portion)."
     },
     "Chicken Rice (Full Portion)": {
-      "name": "Chicken Rice (Full Portion)",
-      "description": "Signature fried rice tossed with juicy marinated chicken pieces (Full portion)."
+      "name": "Chicken Fried Rice (Full Portion)",
+      "description": "Signature fried rice tossed with juicy roasted chicken pieces (Full portion)."
     },
     "Beef Rice (Full Portion)": {
-      "name": "Beef Rice (Full Portion)",
+      "name": "Beef Fried Rice (Full Portion)",
       "description": "Wok-fried rice with tender spiced beef cuts & green onions (Full portion)."
     },
     "Prawn Rice (Full Portion)": {
-      "name": "Prawn Rice (Full Portion)",
-      "description": "Aromatic fried rice loaded with ocean prawns (Full portion)."
+      "name": "Prawn Fried Rice (Full Portion)",
+      "description": "Aromatic fried rice loaded with fresh ocean prawns (Full portion)."
     },
     "Squid Rice (Full Portion)": {
       "name": "Squid Rice (Full Portion)",
@@ -310,15 +313,15 @@
       "description": "Ultimate mixed fried rice loaded with chicken, beef, prawns & egg (Full portion)."
     },
     "Veg Kottu (Full Portion)": {
-      "name": "Veg Kottu (Full Portion)",
+      "name": "Veg Kottu Roti (Full Portion)",
       "description": "Shredded godamba roti stir-fried with vegetables & spices (Full portion)."
     },
     "Egg Kottu (Full Portion)": {
-      "name": "Egg Kottu (Full Portion)",
-      "description": "Chopped roti cooked on iron flat top with scrambled egg and curry (Full portion)."
+      "name": "Egg Kottu Roti (Full Portion)",
+      "description": "Chopped roti cooked on flat top with scrambled egg and spicy gravy (Full portion)."
     },
     "Chicken Kottu (Full Portion)": {
-      "name": "Chicken Kottu (Full Portion)",
+      "name": "Chicken Kottu Roti (Full Portion)",
       "description": "Classic Sri Lankan street food chopped roti with roasted chicken & curry gravy (Full portion)."
     },
     "Chicken Kottu (Half)": {
@@ -330,11 +333,11 @@
       "description": "Generous full portion of sizzling shredded kottu packed with roasted chicken & egg."
     },
     "Beef Kottu (Full Portion)": {
-      "name": "Beef Kottu (Full Portion)",
+      "name": "Beef Kottu Roti (Full Portion)",
       "description": "Spicy chopped roti with tender beef, egg & rich beef gravy (Full portion)."
     },
     "Prawn Kottu (Full Portion)": {
-      "name": "Prawn Kottu (Full Portion)",
+      "name": "Prawn Kottu Roti (Full Portion)",
       "description": "Seafood special kottu chopped with fresh prawns, egg & capsicum (Full portion)."
     },
     "Squid Kottu (Full Portion)": {
@@ -348,6 +351,150 @@
     "Seafood Mix Kottu": {
       "name": "Seafood Mix Kottu",
       "description": "Ocean squid, cuttlefish, and fresh prawns chopped in rich Jaffna curry kottu."
+    },
+    "Tea": {
+      "name": "Ceylon Milk Tea",
+      "description": "Rich Ceylon black tea brewed with fresh milk and subtle sweetness."
+    },
+    "Nestomalt Tea": {
+      "name": "Nestomalt Tea",
+      "description": "Warm wholesome Nestomalt malted beverage rich in essential vitamins."
+    },
+    "Mineral Water Bottle (500ml)": {
+      "name": "Mineral Water Bottle (500ml)",
+      "description": "Chilled pure Sri Lankan mineral bottled drinking water (500ml)."
+    },
+    "Mineral Water Bottle (1.5L)": {
+      "name": "Mineral Water Bottle (1.5L)",
+      "description": "Large family-size chilled pure Sri Lankan bottled mineral drinking water (1.5L)."
+    },
+    "Glass Bottle Soft Drink (300ml)": {
+      "name": "Glass Soft Drink Bottle (300ml)",
+      "description": "Chilled classic glass bottle Coca-Cola / Sprite / Fanta (300ml)."
+    },
+    "Soft Drink PET Bottle (400ml - 750ml)": {
+      "name": "Soft Drink PET Bottle (400ml - 750ml)",
+      "description": "Chilled Coca-Cola, Sprite, or Fanta PET bottle drink."
+    },
+    "Large Soft Drink Bottle (1.5L)": {
+      "name": "Large Soft Drink Bottle (1.5L)",
+      "description": "Large 1.5L chilled Coca-Cola / Sprite PET bottle."
+    },
+    "Fresh Curd / Yoghurt Cup": {
+      "name": "Fresh Curd / Yoghurt Cup",
+      "description": "Chilled authentic rich buffalo milk curd / yoghurt pot."
+    },
+    "Idiyappam / String Hopper (Per Piece)": {
+      "name": "String Hoppers (Per Piece)",
+      "description": "Soft steamed rice flour string hoppers served fresh."
+    },
+    "Vayppan (Sweet Banana Fritter)": {
+      "name": "Sweet Banana Fritter (Vayppan)",
+      "description": "Traditional sweet banana fritter snack fried crisp on the outside."
+    },
+    "Roll": {
+      "name": "Short-Eat Roll",
+      "description": "Crispy breaded short-eat pastry roll stuffed with delicious filling."
+    },
+    "Vegetable Roti": {
+      "name": "Vegetable Roti",
+      "description": "Griddled flatbread stuffed with spiced curried potato and vegetables."
+    },
+    "Egg Roti": {
+      "name": "Egg Roti",
+      "description": "Tawa-toasted flatbread stuffed with fresh farm egg and onions."
+    },
+    "Mutton Meal": {
+      "name": "Royal Mutton Special Meal",
+      "description": "Pearl Hotel Royal Special banana-leaf thali served with tender mutton curry."
+    },
+    "Chicken Devilled": {
+      "name": "Devilled Chicken",
+      "description": "Crispy fried chicken chunks sautéed in sweet & spicy chili pepper sauce."
+    },
+    "Prawn Devilled": {
+      "name": "Devilled Prawns",
+      "description": "Juicy ocean prawns tossed in fiery tomato & chili pepper glaze."
+    },
+    "Cuttlefish / Squid Devilled": {
+      "name": "Devilled Cuttlefish / Squid",
+      "description": "Tender squid rings stir-fried with capsicum, onions & spicy pepper sauce."
+    },
+    "Beef Devilled": {
+      "name": "Devilled Beef",
+      "description": "Seared beef strips tossed with onions & hot spicy chili reduction."
+    },
+    "Veg Biryani": {
+      "name": "Vegetable Biryani",
+      "description": "Fragrant basmati rice cooked with fresh vegetables & biryani spices."
+    },
+    "Egg Rice (Half Portion)": {
+      "name": "Egg Fried Rice (Half Portion)",
+      "description": "Half portion scrambled egg fried rice."
+    },
+    "Chicken Rice (Half Portion)": {
+      "name": "Chicken Fried Rice (Half Portion)",
+      "description": "Half portion wok-fried chicken fried rice."
+    },
+    "Beef Rice (Half Portion)": {
+      "name": "Beef Fried Rice (Half Portion)",
+      "description": "Half portion wok-fried rice with spiced beef cuts."
+    },
+    "Prawn Rice (Half Portion)": {
+      "name": "Prawn Fried Rice (Half Portion)",
+      "description": "Half portion fried rice loaded with sea prawns."
+    },
+    "Cuttlefish Rice (Half Portion)": {
+      "name": "Cuttlefish Fried Rice (Half Portion)",
+      "description": "Half portion fried rice with tender squid rings."
+    },
+    "Cuttlefish Rice (Full Portion)": {
+      "name": "Cuttlefish Fried Rice (Full Portion)",
+      "description": "Seafood fried rice tossed with seasoned squid rings (Full portion)."
+    },
+    "Mixed Rice (Half Portion)": {
+      "name": "Mixed Fried Rice (Half Portion)",
+      "description": "Half portion ultimate mixed fried rice (Chicken, beef, prawns & egg)."
+    },
+    "Mixed Rice (Full Portion)": {
+      "name": "Mixed Fried Rice (Full Portion)",
+      "description": "Ultimate mixed fried rice loaded with chicken, beef, prawns & egg (Full portion)."
+    },
+    "Veg Kottu (Half Portion)": {
+      "name": "Veg Kottu Roti (Half Portion)",
+      "description": "Half portion shredded godamba roti kottu stir-fried with veggies."
+    },
+    "Egg Kottu (Half Portion)": {
+      "name": "Egg Kottu Roti (Half Portion)",
+      "description": "Half portion chopped kottu roti with scrambled egg & gravy."
+    },
+    "Chicken Kottu (Half Portion)": {
+      "name": "Chicken Kottu Roti (Half Portion)",
+      "description": "Sizzling godamba roti kottu chopped with chicken pieces & spicy gravy (Half portion)."
+    },
+    "Beef Kottu (Half Portion)": {
+      "name": "Beef Kottu Roti (Half Portion)",
+      "description": "Half portion spicy chopped roti with tender beef."
+    },
+    "Prawn Kottu (Half Portion)": {
+      "name": "Prawn Kottu Roti (Half Portion)",
+      "description": "Half portion seafood kottu with fresh prawns."
+    },
+    "Cuttlefish Kottu (Half Portion)": {
+      "name": "Cuttlefish Kottu Roti (Half Portion)",
+      "description": "Half portion kottu chopped with ocean squid rings."
+    },
+    "Cuttlefish Kottu (Full Portion)": {
+      "name": "Cuttlefish Kottu Roti (Full Portion)",
+      "description": "Tender squid rings chopped with roti, veggies & seafood sauce (Full portion)."
+    },
+    "Mixed Kottu (Half Portion)": {
+      "name": "Mixed Kottu Roti (Half Portion)",
+      "description": "Half portion royal mixed kottu with chicken, beef, prawns & egg."
+    },
+    "Mixed Kottu (Full Portion)": {
+      "name": "Mixed Kottu Roti (Full Portion)",
+      "description": "The supreme royal kottu combining chicken, beef, prawns & egg (Full portion)."
     }
   },
   "reviews": {

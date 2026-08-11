@@ -88,13 +88,14 @@ export default function Navbar() {
             {/* Action Buttons: Phone Call & Admin Login Portal link */}
             <div className="flex items-center gap-3">
               
-              {/* Direct Call Button in Navbar */}
+              {/* Direct Landline Call Button in Navbar */}
               <a
-                href="tel:+94771234567"
+                href="tel:0212213826"
                 className="hidden lg:flex items-center gap-1.5 px-4 py-2 rounded-full gold-gradient-bg text-dark-950 text-xs font-extrabold shadow-gold-glow hover:scale-105 active:scale-95 transition-all"
+                title="Call Primary Landline"
               >
                 <Phone className="w-3.5 h-3.5 fill-dark-950 stroke-none" />
-                <span>+94 77 123 4567</span>
+                <span>021 221 3826</span>
               </a>
 
               {/* Admin Portal Button */}
@@ -142,11 +143,11 @@ export default function Navbar() {
                 {t('nav.menu')}
               </Link>
               <a
-                href="tel:+94771234567"
+                href="tel:0212213826"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-between text-base font-bold py-2 text-gold-400 border-b border-slate-800/60"
               >
-                <span>📞 +94 77 123 4567</span>
+                <span>📞 0212213826</span>
                 <Phone className="w-4 h-4" />
               </a>
               <Link

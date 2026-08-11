@@ -10,7 +10,7 @@ export default function FoodModal({ food, onClose }) {
   const translatedFood = tFood(food);
   const formatLKR = (amount) => `Rs. ${Number(amount).toLocaleString('en-LK')}`;
 
-  const whatsappNumber = '94771234567';
+  const whatsappNumber = '94769489016';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `${t('food.whatsappOrderMessage')} ${translatedFood.name} (${formatLKR(translatedFood.price)})`
   )}`;
@@ -82,6 +82,17 @@ export default function FoodModal({ food, onClose }) {
                   }`}>
                     {translatedFood.isAvailable ? t('food.available') : t('food.outOfStock')}
                   </span>
+
+                  {food.name.toLowerCase().includes('half') && (
+                    <span className="text-xs font-black px-2.5 py-0.5 rounded-md bg-amber-500 text-dark-950 border border-amber-300">
+                      {t('food.halfPortion')}
+                    </span>
+                  )}
+                  {food.name.toLowerCase().includes('full') && (
+                    <span className="text-xs font-black px-2.5 py-0.5 rounded-md bg-crimson-800 text-gold-300 border border-gold-500/50">
+                      {t('food.fullPortion')}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -116,7 +127,7 @@ export default function FoodModal({ food, onClose }) {
                 </a>
 
                 <a
-                  href="tel:+94771234567"
+                  href="tel:0212213826"
                   className="flex-1 sm:flex-initial px-6 py-3 rounded-full bg-crimson-900/80 hover:bg-crimson-800 text-gold-300 border border-gold-500/40 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all"
                 >
                   <Phone className="w-4 h-4 text-gold-400" />
